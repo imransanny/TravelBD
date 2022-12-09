@@ -4,6 +4,10 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/AndroidApps/TravelBD/app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="..\:/AndroidApps/TravelBD/app/src/main/res/layout/home.xml" value="0.35104166666666664" />
+        <entry key="..\:/AndroidApps/TravelBD/app/src/main/res/layout/hotels.xml" value="0.75" />
+        <entry key="..\:/AndroidApps/TravelBD/app/src/main/res/layout/placelist.xml" value="0.35104166666666664" />
+        <entry key="..\:/AndroidApps/TravelBD/app/src/main/res/layout/signup.xml" value="0.35104166666666664" />
       </map>
     </option>
   </component>
