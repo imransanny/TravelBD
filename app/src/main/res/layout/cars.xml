@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <EditText
+        android:id="@+id/car_pickup"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="4dp"
+        android:drawableLeft="@drawable/ic_location"
+        android:ems="10"
+        android:hint="Pick up "
+        android:inputType="textMultiLine"
+        android:minHeight="48dp"
+        android:visibility="visible"
+        app:layout_constraintEnd_toStartOf="@+id/car_pickuptime"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/car_pickuptime"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginEnd="8dp"
+        android:drawableLeft="@drawable/ic_time"
+        android:ems="10"
+        android:hint="pick up time"
+        android:inputType="time"
+        android:minHeight="48dp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="@+id/car_pickup"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintStart_toEndOf="@+id/car_pickup"
+        app:layout_constraintTop_toTopOf="@+id/car_pickup" />
+
+    <EditText
+        android:id="@+id/car_drpoff"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:drawableLeft="@drawable/ic_location"
+        android:ems="10"
+        android:hint="Drop off"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="@+id/car_pickup"
+        app:layout_constraintStart_toStartOf="@+id/car_pickup"
+        app:layout_constraintTop_toBottomOf="@+id/car_pickup" />
+
+    <EditText
+        android:id="@+id/car_dropofftime"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:drawableLeft="@drawable/ic_time"
+        android:ems="10"
+        android:hint="drop off time"
+        android:inputType="time"
+        android:minHeight="48dp"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="@+id/car_pickuptime"
+        app:layout_constraintStart_toStartOf="@+id/car_pickuptime"
+        app:layout_constraintTop_toBottomOf="@+id/car_pickuptime" />
+
+    <Button
+        android:id="@+id/car_search"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:backgroundTint="#FF9800"
+        android:text="Search for cars"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="@+id/car_dropofftime"
+        app:layout_constraintStart_toStartOf="@+id/car_drpoff"
+        app:layout_constraintTop_toBottomOf="@+id/car_dropofftime" />
+
+    <ImageView
+        android:id="@+id/car_econ"
+        android:layout_width="373dp"
+        android:layout_height="127dp"
+        android:layout_marginTop="8dp"
+        android:layout_weight="1"
+        android:contentDescription="@android:string/yes"
+        app:layout_constraintEnd_toEndOf="@+id/car_search"
+        app:layout_constraintStart_toStartOf="@+id/car_search"
+        app:layout_constraintTop_toBottomOf="@+id/car_search"
+        app:srcCompat="@drawable/car_econ" />
+
+    <ImageView
+        android:id="@+id/car_comp"
+        android:layout_width="373dp"
+        android:layout_height="127dp"
+        android:layout_marginTop="8dp"
+        android:layout_weight="1"
+        android:contentDescription="@android:string/yes"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="@+id/car_econ"
+        app:layout_constraintStart_toStartOf="@+id/car_econ"
+        app:layout_constraintTop_toBottomOf="@+id/car_econ"
+        app:srcCompat="@drawable/car_comp" />
+
+    <ImageView
+        android:id="@+id/car_corolla"
+        android:layout_width="373dp"
+        android:layout_height="127dp"
+        android:layout_marginTop="8dp"
+        android:layout_weight="1"
+        android:contentDescription="@android:string/yes"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="@+id/car_comp"
+        app:layout_constraintStart_toStartOf="@+id/car_comp"
+        app:layout_constraintTop_toBottomOf="@+id/car_comp"
+        app:srcCompat="@drawable/car_corolla" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
