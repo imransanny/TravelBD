@@ -12,43 +12,46 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
+        android:queryHint="search hotels"
         android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/h_date"
+        android:id="@+id/bookingdate"
         android:layout_width="0dp"
         android:layout_height="55dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="27dp"
         android:layout_marginEnd="4dp"
         android:ems="10"
+        android:hint="date"
         android:inputType="date"
-        android:textColor="@color/black"
+        android:textColor="#8F000000"
         android:textSize="12sp"
         android:visibility="visible"
-        app:layout_constraintEnd_toStartOf="@+id/h_time"
+        app:layout_constraintEnd_toStartOf="@+id/bookingtime"
         app:layout_constraintHorizontal_weight="1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/hotel_search" />
 
     <EditText
-        android:id="@+id/h_time"
+        android:id="@+id/bookingtime"
         android:layout_width="0dp"
         android:layout_height="55dp"
         android:layout_marginStart="4dp"
         android:layout_marginTop="27dp"
         android:layout_marginEnd="8dp"
         android:ems="10"
+        android:hint="time"
         android:inputType="time"
-        android:textColor="@color/black"
+        android:textColor="#8F000000"
         android:textSize="12sp"
         android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_weight="1"
-        app:layout_constraintStart_toEndOf="@+id/h_date"
+        app:layout_constraintStart_toEndOf="@+id/bookingdate"
         app:layout_constraintTop_toBottomOf="@+id/hotel_search" />
 
     <ListView
@@ -58,5 +61,76 @@
         android:layout_marginStart="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/h_date" />
+        app:layout_constraintTop_toBottomOf="@+id/bookingdate" />
+
+    <ImageView
+        android:id="@+id/hotel1"
+        android:layout_width="250dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="24dp"
+        android:visibility="visible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bookingdate"
+        app:srcCompat="@drawable/hotelmarine" />
+
+    <Button
+        android:id="@+id/booking_hotel1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="53dp"
+        android:backgroundTint="#0495D6"
+        android:text="Book now"
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        app:layout_constraintStart_toEndOf="@+id/hotel1"
+        app:layout_constraintTop_toBottomOf="@+id/bookingtime" />
+
+    <ImageView
+        android:id="@+id/hotel2"
+        android:layout_width="250dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/hotel1"
+        app:srcCompat="@drawable/hotelseacox" />
+
+    <Button
+        android:id="@+id/booking_hotel2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="60dp"
+        android:backgroundTint="#0495D6"
+        android:text="Book now"
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        app:layout_constraintStart_toEndOf="@+id/hotel2"
+        app:layout_constraintTop_toBottomOf="@+id/booking_hotel1" />
+
+    <ImageView
+        android:id="@+id/hotel3"
+        android:layout_width="250dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/hotel2"
+        app:srcCompat="@drawable/hotelseacox" />
+
+    <Button
+        android:id="@+id/booking_hotel3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="60dp"
+        android:backgroundTint="#0495D6"
+        android:text="Book now"
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        app:layout_constraintStart_toEndOf="@+id/hotel3"
+        app:layout_constraintTop_toBottomOf="@+id/booking_hotel2" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
