@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/AboutUs"
+    android:orientation="vertical">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Travel BD"
+        android:textColor="#FAF9F9"
+        android:layout_marginTop="40dp"
+        android:textSize="40sp"
+        android:textStyle="bold"
+        android:textAlignment="center"
+        android:layout_marginBottom="100dp"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#FFEEEE"
+        android:layout_marginTop="40dp"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        android:layout_margin="10dp"
+        android:text="This Application is a part of our project in CSE489.
+        Our Goal is to Develop app for Travelers and Managers. Traveling
+        to a new destination can be challenging and difficult. Staying in
+        a nice home should'nt be one. Our Travel BD app can easily help to
+        locate nearby Hotels and Resturants and also shows their ratings
+        from other users. Booking Rides and Flights can be also done via
+        App. For our Managers can post about their Hotels and Resturants
+        as a way to gain some tourist"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Credits"
+        android:textStyle="bold"
+        android:textAlignment="viewStart"
+        android:textSize="30dp"
+        android:layout_marginBottom="15sp"
+        android:textColor="@color/black"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textStyle="normal"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:text="Ziaul Haque Rafi"
+        android:layout_margin="5dp"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textStyle="normal"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:textAlignment="viewEnd"
+        android:text="2020-1-60-118"
+        android:layout_margin="5dp"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textStyle="normal"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:text="Imran Hasan"
+        android:layout_margin="5dp"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textStyle="normal"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:textAlignment="viewEnd"
+        android:text="2020-1-60-119"
+        android:layout_margin="5dp"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textStyle="normal"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:text="Rezmah Jemima Rupin"
+        android:layout_margin="5dp"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textStyle="normal"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:textAlignment="viewEnd"
+        android:text="2020-1-60-247"
+        android:layout_margin="5dp"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Exit"/>
+
+
+
+</LinearLayout>
