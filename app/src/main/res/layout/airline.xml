@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/air_path"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_weight="1"
+        android:text="Choose tour path:"
+        android:textAllCaps="false"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <RadioGroup
+        android:id="@+id/air_direction"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="47dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="236dp"
+        android:gravity="center_vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/air_path"
+        tools:ignore="MissingConstraints">
+
+        <RadioButton
+            android:id="@+id/btn_oneway"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="One way"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            android:visibility="visible">
+
+        </RadioButton>
+
+        <RadioButton
+            android:id="@+id/btn_roundtrip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Round Trip"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            android:visibility="visible">
+
+        </RadioButton>
+
+        <RadioButton
+            android:id="@+id/btn_anothercity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Another city"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            android:visibility="visible">
+
+        </RadioButton>
+
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/air_citytime"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:text="Choose City and Time:"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/air_direction" />
+
+    <EditText
+        android:id="@+id/airfrom"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:ems="10"
+        android:hint="From"
+        android:inputType="text"
+        android:minHeight="48dp"
+        android:textSize="18sp"
+        android:visibility="visible"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/air_citytime" />
+
+    <EditText
+        android:id="@+id/airto"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="8dp"
+        android:ems="10"
+        android:hint="To"
+        android:inputType="text"
+        android:minHeight="48dp"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintStart_toEndOf="@+id/airfrom"
+        app:layout_constraintTop_toTopOf="@+id/airfrom" />
+
+    <EditText
+        android:id="@+id/air_depart"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:hint="Departure"
+        android:inputType="datetime"
+        android:minHeight="48dp"
+        android:visibility="visible"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/airfrom" />
+
+    <EditText
+        android:id="@+id/air_return"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:ems="10"
+        android:hint="Return"
+        android:inputType="datetime"
+        android:minHeight="48dp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="@+id/air_depart"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintStart_toEndOf="@+id/airfrom"
+        app:layout_constraintTop_toBottomOf="@+id/airto" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:backgroundTint="#F31594FB"
+        android:gravity="center"
+        android:text="Search"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/air_return"
+        app:layout_constraintStart_toStartOf="@+id/air_depart"
+        app:layout_constraintTop_toBottomOf="@+id/air_depart" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
