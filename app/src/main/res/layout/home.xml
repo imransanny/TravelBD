@@ -1,7 +1,216 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:layout_editor_absoluteX="1dp"
+    app:layout_editor_absoluteY="1dp">
+
+
+<androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-</LinearLayout>
+    <TextView
+        app:layout_constraintHorizontal_weight="1"
+        android:id="@+id/TavelBD_home_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TRAVEL BD"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:gravity="center"
+        android:fontFamily="@font/pacifico"
+       app:layout_constraintTop_toTopOf="parent"/>
+
+    <ImageView
+        app:layout_constraintHorizontal_weight="1"
+        android:id="@+id/Hamburger_menu_home_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+       android:layout_marginLeft="10dp"
+        android:src="@drawable/ic_menu_bar"
+        app:layout_constraintBaseline_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        app:layout_constraintHorizontal_weight="1"
+        android:id="@+id/profile_home_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+       android:layout_marginRight="10dp"
+        android:src="@drawable/ic_person"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        app:layout_constraintHorizontal_weight="1"
+        android:id="@+id/notifaction_home_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_notification"
+        android:scaleType="center"
+        android:layout_marginLeft="30dp"
+        app:layout_constraintLeft_toRightOf="@id/TavelBD_home_id"
+        app:layout_constraintTop_toTopOf="@id/profile_home_id" />
+
+    <ImageView
+        android:id="@+id/ballon_home_id"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/img"
+        app:layout_constraintTop_toBottomOf="@id/TavelBD_home_id"
+      />
+
+
+    <ImageView
+        app:layout_constraintHorizontal_weight="1"
+        android:id="@+id/place_icon_home_id"
+        android:layout_width="80dp"
+        android:layout_height="180px"
+        android:layout_marginTop="40dp"
+  android:layout_marginLeft="20dp"
+        android:src="@drawable/ic_place_picture_hotee"
+        app:layout_constraintTop_toBottomOf="@id/ballon_home_id"
+        app:layout_constraintStart_toStartOf="@id/Hamburger_menu_home_id"/>
+
+    <ImageView
+        android:id="@+id/hotel_icon_id"
+        app:layout_constraintHorizontal_weight="1"
+        android:layout_width="80dp"
+        android:layout_height="180px"
+        android:layout_marginTop="40dp"
+        android:src="@drawable/ic_hotel_picture_home"
+        app:layout_constraintTop_toBottomOf="@id/ballon_home_id"
+        app:layout_constraintLeft_toRightOf="@id/place_icon_home_id"
+        app:layout_constraintRight_toLeftOf="@id/air_icon_home_id"
+       />
+
+    <ImageView
+        android:id="@+id/air_icon_home_id"
+        app:layout_constraintHorizontal_weight="1"
+        android:layout_width="80dp"
+        android:layout_height="180px"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="40dp"
+        android:src="@drawable/ic_air_picturehome"
+        app:layout_constraintTop_toBottomOf="@id/ballon_home_id"
+        app:layout_constraintEnd_toEndOf="@id/profile_home_id"/>
+
+    <TextView
+        android:id="@+id/place_text_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=" Place "
+        android:textSize="25sp"
+        app:layout_constraintTop_toBottomOf="@id/place_icon_home_id"
+        app:layout_constraintStart_toStartOf="@+id/place_icon_home_id"
+        app:layout_constraintEnd_toEndOf="@+id/place_icon_home_id"
+        />
+
+    <TextView
+        android:id="@+id/hotel_text_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=" Hotel "
+        android:textSize="25sp"
+        app:layout_constraintTop_toBottomOf="@id/hotel_icon_id"
+        app:layout_constraintStart_toStartOf="@id/hotel_icon_id"
+        app:layout_constraintEnd_toEndOf="@id/hotel_icon_id"
+        />
+    <TextView
+        android:id="@+id/air_text_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=" Air "
+        android:textSize="25sp"
+        app:layout_constraintTop_toBottomOf="@id/air_icon_home_id"
+        app:layout_constraintStart_toStartOf="@id/air_icon_home_id"
+        app:layout_constraintEnd_toEndOf="@id/air_icon_home_id"
+        />
+
+    <ImageView
+        app:layout_constraintHorizontal_weight="1"
+        android:id="@+id/car_image_id"
+        android:layout_width="80dp"
+        android:layout_height="180px"
+        android:layout_marginTop="40dp"
+        android:src="@drawable/ic_car_home_picture"
+        app:layout_constraintTop_toBottomOf="@id/place_text_id"
+        app:layout_constraintStart_toStartOf="@id/place_icon_home_id"/>
+
+    <ImageView
+        android:id="@+id/Bike_image_id"
+        app:layout_constraintHorizontal_weight="1"
+        android:layout_width="80dp"
+        android:layout_height="180px"
+        android:layout_marginTop="40dp"
+        android:src="@drawable/ic_bike_picture_home"
+        app:layout_constraintTop_toBottomOf="@id/hotel_text_id"
+        app:layout_constraintLeft_toRightOf="@id/car_image_id"
+        app:layout_constraintRight_toLeftOf="@id/review_image_id"
+        />
+
+    <ImageView
+        android:id="@+id/review_image_id"
+        app:layout_constraintHorizontal_weight="1"
+        android:layout_width="80dp"
+        android:layout_height="180px"
+        android:layout_marginTop="40dp"
+        android:src="@drawable/ic_review_picture_home"
+        app:layout_constraintTop_toBottomOf="@id/air_text_id"
+        app:layout_constraintEnd_toEndOf="@id/air_icon_home_id"/>
+    <TextView
+        android:id="@+id/car_text_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=" Car "
+        android:textSize="25sp"
+        app:layout_constraintTop_toBottomOf="@id/car_image_id"
+        app:layout_constraintStart_toStartOf="@+id/car_image_id"
+        app:layout_constraintEnd_toEndOf="@+id/car_image_id" />
+
+    <TextView
+        android:id="@+id/bike_text_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=" Bike "
+        android:textSize="25sp"
+        app:layout_constraintTop_toBottomOf="@id/Bike_image_id"
+        app:layout_constraintStart_toStartOf="@id/Bike_image_id"
+        app:layout_constraintEnd_toEndOf="@id/Bike_image_id" />
+
+    <TextView
+        android:id="@+id/review_text_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=" Review "
+        android:textSize="25sp"
+        app:layout_constraintTop_toBottomOf="@id/review_image_id"
+        app:layout_constraintStart_toStartOf="@id/review_image_id"
+        app:layout_constraintEnd_toEndOf="@id/review_image_id"
+        />
+    <ImageView
+        android:id="@+id/discount_image_id"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_discount_home_image"
+        app:layout_constraintTop_toBottomOf="@id/bike_text_id" />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
