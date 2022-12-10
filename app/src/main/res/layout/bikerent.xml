@@ -3,23 +3,25 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:layout_margin="10dp">
 
     <EditText
         android:id="@+id/bike_checkin"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintHorizontal_weight="1"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="4dp"
-        android:drawableStart="@drawable/ic_calendar"
+        android:drawableLeft="@drawable/ic_calendar"
         android:ems="10"
         android:hint="Check in"
         android:inputType="date"
         android:minHeight="48dp"
         android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="@+id/bike_checkout"
         app:layout_constraintEnd_toStartOf="@+id/bike_checkout"
+        app:layout_constraintHorizontal_weight="1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -28,18 +30,18 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="4dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:drawableLeft="@drawable/ic_calendar"
         android:ems="10"
         android:hint="Check out"
         android:inputType="date"
         android:minHeight="48dp"
-        android:textColorHint="#546E7A"
-        app:layout_constraintBottom_toBottomOf="@+id/bike_checkin"
+        app:layout_constraintBottom_toTopOf="@+id/bike_search"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_weight="1"
         app:layout_constraintStart_toEndOf="@+id/bike_checkin"
-        app:layout_constraintTop_toTopOf="@+id/bike_checkin" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/bike_search"
@@ -82,7 +84,8 @@
             android:minHeight="48dp"
             android:text="1st Slot: 9am - 1pm"
             android:textAlignment="textStart"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            android:textStyle="bold" />
 
         <TextView
             android:layout_width="match_parent"
@@ -99,7 +102,8 @@
             android:layout_height="wrap_content"
             android:minHeight="48dp"
             android:text="2nd Slot: 2pm - 6pm"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            android:textStyle="bold" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -115,15 +119,17 @@
             android:layout_height="wrap_content"
             android:minHeight="48dp"
             android:text="3rd Slot: 9am - 8pm"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            android:textStyle="bold" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Rent: BDT 1200 per hour"
+            android:layout_marginLeft="30dp"
+            android:text="Rent: BDT 1200"
             android:textColor="@color/black"
-            android:textSize="16sp"
-            android:layout_marginLeft="30dp" />
+            android:textSize="16sp" />
 
     </RadioGroup>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

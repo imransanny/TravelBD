@@ -10,7 +10,7 @@
             android:layout_height="wrap_content"
             android:text="Welcome"
             android:textStyle="bold"
-            android:textColor="@color/teal_200"
+            android:textColor="#1F615B"
             android:textSize="40sp"
             android:layout_gravity="center"
             android:textAlignment="center"
@@ -20,16 +20,16 @@
             android:layout_height="wrap_content"
             android:text="to Travel BD"
             android:textAlignment="center"
-            android:textColor="@color/teal_200"
+            android:textColor="#1F615B"
             android:layout_marginBottom="110dp"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="-The journey of a thousand miles begins with one step."
+            android:text="The journey of a thousand miles begins with just one step."
             android:textStyle="bold"
-            android:textColor="@color/teal_200"
+            android:textColor="#1F615B"
             android:textSize="10sp"
-            android:gravity="right"
+            android:gravity="center"
             android:layout_margin="5dp"
             android:layout_marginBottom="500dp"/>
         <TextView
@@ -37,7 +37,7 @@
             android:layout_height="wrap_content"
             android:text="Let's Begin!"
             android:textAlignment="center"
-            android:textColor="@color/teal_200"
+            android:textColor="#1F615B"
             android:layout_marginBottom="80dp"
             android:layout_marginTop="20dp"
             android:textSize="20sp"/>
