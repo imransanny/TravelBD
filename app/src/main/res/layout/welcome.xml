@@ -42,7 +42,7 @@
             android:layout_marginTop="20dp"
             android:textSize="20sp"/>
         <TextView
-            android:id="@+id/travel"
+            android:id="@+id/travel_id"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="I am Interested in Traveling"
@@ -55,7 +55,7 @@
             />
 
         <TextView
-            android:id="@+id/manage"
+            android:id="@+id/manage_id"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="I am a Manager"

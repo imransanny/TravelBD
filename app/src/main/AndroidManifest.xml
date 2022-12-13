@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="edu.ewubd.travelbd119">
+    xmlns:tools="http://schemas.android.com/tools">
 
     <application
         android:allowBackup="true"
@@ -27,12 +27,13 @@
             android:exported="true"/>
 
         <activity
-            android:name=".welcome"
+            android:name=".MainActivity"
             android:exported="true"/>
 
         <activity
-            android:name=".MainActivity"
-            android:exported="true">
+            android:name=".welcome"
+            android:exported="true"
+            tools:ignore="DuplicateActivity">
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
