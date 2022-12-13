@@ -9,27 +9,41 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.TravelBD">
-        <activity
-            android:name=".Discount"
-            android:exported="true"/>
 
+        <activity
+            android:name=".Airline"
+            android:exported="true"/>
         <activity
             android:name=".Best_visit_place_suggestion"
             android:exported="true"/>
-
-
         <activity
-            android:name=".Home"
+            android:name=".Bike"
+            android:exported="true"/>
+        <activity
+            android:name=".Cars"
             android:exported="true"/>
 
         <activity
-            android:name=".Profile"
+            android:name=".Discount"
+            android:exported="true"/>
+        <activity
+            android:name=".Home"
+            android:exported="true"/>
+        <activity
+            android:name=".Hotels"
             android:exported="true"/>
 
         <activity
             android:name=".MainActivity"
             android:exported="true"/>
 
+        <activity
+            android:name=".PlaceList"
+            android:exported="true"/>
+
+        <activity
+            android:name=".Profile"
+            android:exported="true"/>
         <activity
             android:name=".welcome"
             android:exported="true"
