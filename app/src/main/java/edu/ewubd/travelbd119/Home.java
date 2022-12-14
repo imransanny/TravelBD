@@ -32,7 +32,7 @@ public class Home extends AppCompatActivity {
             discout = findViewById(R.id.discount_image_id);
             place_logo = findViewById(R.id.place_icon_home_id);
             Hotel_logo = findViewById(R.id.hotel_icon_id);
-            Air_logo = findViewById(R.id.car_image_id);
+            Air_logo = findViewById(R.id.air_icon_home_id);
             Car_logo = findViewById(R.id.car_image_id);
             Bike_logo = findViewById(R.id.Bike_image_id);
             review = findViewById(R.id.review_text_id);
