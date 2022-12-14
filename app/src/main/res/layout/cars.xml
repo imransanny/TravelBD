@@ -103,7 +103,7 @@
             android:visibility="visible"
             app:layout_constraintStart_toStartOf="@+id/car_search"
             app:layout_constraintTop_toBottomOf="@+id/car_search"
-            app:srcCompat="@drawable/NOAH_PNG38" />
+            app:srcCompat="@drawable/car_noah" />
 
         <TextView
             android:id="@+id/detail01"

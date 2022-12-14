@@ -45,6 +45,9 @@
             android:name=".Profile"
             android:exported="true"/>
         <activity
+            android:name=".forget_password"
+            android:exported="true"/>
+        <activity
             android:name=".welcome"
             android:exported="true"
             tools:ignore="DuplicateActivity">

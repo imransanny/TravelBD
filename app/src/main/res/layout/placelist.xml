@@ -4,17 +4,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     app:layout_editor_absoluteX="1dp"
     app:layout_editor_absoluteY="1dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/placeimage1"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:visibility="visible"
-        android:layout_margin="10dp">
-
+        android:layout_height="match_parent">
 
         <SearchView
             android:id="@+id/place_search"
@@ -37,38 +33,155 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/place_kuyakata"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/place_search">
 
-
         </ListView>
 
-        <ImageView
-            android:id="@+id/place01"
-            android:layout_width="350dp"
-            android:layout_height="230dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="30dp"
-            android:layout_marginEnd="20dp"
-            android:visibility="visible"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/place_search"
-            app:srcCompat="@drawable/coxsbazar" />
+        <TextView
+            android:id="@+id/place_kuyakata"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:text="1. Kuyakata: "
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/place_search"
+            app:layout_constraintStart_toStartOf="@+id/place_search"
+            app:layout_constraintTop_toBottomOf="@+id/place_search" />
 
         <ImageView
-            android:id="@+id/place02"
+            android:id="@+id/place_01"
+            android:layout_width="380dp"
+            android:layout_height="200dp"
+            android:layout_marginTop="8dp"
+            android:contentDescription="@android:string/yes"
+            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="@+id/place_search"
+            app:layout_constraintStart_toStartOf="@+id/place_search"
+            app:layout_constraintTop_toBottomOf="@+id/place_kuyakata"
+            app:layout_constraintVertical_weight="1"
+            app:srcCompat="@drawable/kuyakata" />
+
+        <TextView
+            android:id="@+id/place_bagerhat"
             android:layout_width="0dp"
-            android:layout_height="280dp"
-            android:layout_marginStart="30dp"
-            android:layout_marginEnd="30dp"
-            android:scaleType="fitCenter"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/place01"
-            app:srcCompat="@drawable/srimangal" />
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="10dp"
+            android:text="2. Bagerhat: "
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="@+id/place_01"
+            app:layout_constraintStart_toStartOf="@+id/place_01"
+            app:layout_constraintTop_toBottomOf="@+id/place_01" />
+
+        <ImageView
+            android:id="@+id/place_02"
+            android:layout_width="380dp"
+            android:layout_height="200dp"
+            android:layout_marginTop="8dp"
+            android:contentDescription="@android:string/yes"
+            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="@+id/place_01"
+            app:layout_constraintStart_toStartOf="@+id/place_01"
+            app:layout_constraintTop_toBottomOf="@+id/place_bagerhat"
+            app:layout_constraintVertical_weight="1"
+            app:srcCompat="@drawable/bagerhat" />
+
+        <TextView
+            android:id="@+id/place_sreemangal"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="10dp"
+            android:text="3. Sreemangal: "
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="@+id/place_02"
+            app:layout_constraintStart_toStartOf="@+id/place_02"
+            app:layout_constraintTop_toBottomOf="@+id/place_02" />
+
+        <ImageView
+            android:id="@+id/place_03"
+            android:layout_width="380dp"
+            android:layout_height="200dp"
+            android:layout_marginTop="8dp"
+            android:contentDescription="@android:string/yes"
+            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="@+id/place_02"
+            app:layout_constraintStart_toStartOf="@+id/place_02"
+            app:layout_constraintTop_toBottomOf="@+id/place_sreemangal"
+            app:layout_constraintVertical_weight="1"
+            app:srcCompat="@drawable/sreemangal" />
+
+        <TextView
+            android:id="@+id/place_shah_amanat_shetu"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="10dp"
+            android:text="4. Shah Amanat Shetu: "
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="@+id/place_02"
+            app:layout_constraintStart_toStartOf="@+id/place_02"
+            app:layout_constraintTop_toBottomOf="@+id/place_03" />
+
+        <ImageView
+            android:id="@+id/place_04"
+            android:layout_width="380dp"
+            android:layout_height="200dp"
+            android:layout_marginTop="8dp"
+            android:contentDescription="@android:string/yes"
+            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="@+id/place_03"
+            app:layout_constraintStart_toStartOf="@+id/place_03"
+            app:layout_constraintTop_toBottomOf="@+id/place_shah_amanat_shetu"
+            app:layout_constraintVertical_weight="1"
+            app:srcCompat="@drawable/shahamanatshetu" />
+
+        <TextView
+            android:id="@+id/place_rangamati"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="10dp"
+            android:text="5. Rangamati: "
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="@+id/place_04"
+            app:layout_constraintStart_toStartOf="@+id/place_04"
+            app:layout_constraintTop_toBottomOf="@+id/place_04" />
+
+        <ImageView
+            android:id="@+id/place_05"
+            android:layout_width="380dp"
+            android:layout_height="200dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:contentDescription="@android:string/yes"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/place_04"
+            app:layout_constraintStart_toStartOf="@+id/place_04"
+            app:layout_constraintTop_toBottomOf="@+id/place_rangamati"
+            app:layout_constraintVertical_weight="1"
+            app:srcCompat="@drawable/rangamatibridge" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
