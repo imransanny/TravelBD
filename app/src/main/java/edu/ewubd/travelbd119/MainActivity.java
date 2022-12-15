@@ -13,25 +13,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.welcome);
-
-        traveler = findViewById(R.id.travel_id);
-        manager = findViewById(R.id.manage_id);
-
-        traveler.setOnClickListener(v-> traveler());
-        manager.setOnClickListener(v-> manager());
-
 
     }
 
-    private void traveler() {
-        Intent i= new Intent(MainActivity.this, Home.class);
-        startActivity(i);
-    }
-
-    private void manager() {
-        Intent i= new Intent(MainActivity.this, Home.class);
-    }
-
-
-}
+   }

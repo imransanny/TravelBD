@@ -52,24 +52,16 @@ public class Home extends AppCompatActivity {
 
             car.setOnClickListener(v->car());
             Car_logo.setOnClickListener(v->car());
-
             bike.setOnClickListener(v->bike());
             Bike_logo.setOnClickListener(v->bike());
-
             review.setOnClickListener(v->review());
             Review_logo.setOnClickListener(v->review());
             profile.setOnClickListener(v->profile());
-
-
-
-
-
             discout.setOnClickListener(v->discount());
 
 
-            Intent i = new Intent(Home.this, Discount.class);
-              startActivity(i);
-              }
+
+        }
 
     private void review() {
         Intent i = new Intent(Home.this, Best_visit_place_suggestion.class);

@@ -6,64 +6,60 @@
     android:background="@drawable/welcome">
 
         <TextView
+            android:layout_weight="1"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             android:text="Welcome"
             android:textStyle="bold"
             android:textColor="#1F615B"
             android:textSize="40sp"
-            android:layout_gravity="center"
-            android:textAlignment="center"
-            android:layout_marginTop="100dp"/>
+            android:gravity="bottom|center" />
         <TextView
+            android:layout_weight="0.3"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             android:text="to Travel BD"
             android:textAlignment="center"
-            android:textColor="#1F615B"
-            android:layout_marginBottom="110dp"/>
+            android:textColor="#1F615B" />
         <TextView
+            android:layout_weight="0.3"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             android:text="The journey of a thousand miles begins with just one step."
             android:textStyle="bold"
             android:textColor="#1F615B"
             android:textSize="10sp"
-            android:gravity="center"
-            android:layout_margin="5dp"
-            android:layout_marginBottom="500dp"/>
+            android:gravity="bottom|center_horizontal" />
+
         <TextView
+            android:layout_weight="0.5"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
+        android:layout_marginTop="15dp"
             android:text="Let's Begin!"
             android:textAlignment="center"
             android:textColor="#1F615B"
-            android:layout_marginBottom="80dp"
-            android:layout_marginTop="20dp"
-            android:textSize="20sp"/>
+            android:textSize="20sp" />
         <TextView
-            android:id="@+id/travel_id"
+            android:layout_weight="0.5"
+            android:id="@+id/travel_idd"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             android:text="I am Interested in Traveling"
-            android:textAlignment="center"
+            android:gravity="center"
             android:textStyle="bold"
             android:textColor="@color/black"
-            android:layout_marginBottom="110dp"
-            android:layout_margin="20dp"
-            android:textSize="15sp"
-            />
+            android:textSize="15sp" />
 
         <TextView
-            android:id="@+id/manage_id"
+            android:layout_weight="1.5"
+            android:id="@+id/manage_idd"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             android:text="I am a Manager"
             android:textAlignment="center"
             android:textStyle="bold"
             android:textColor="@color/black"
-            android:layout_marginBottom="110dp"
-            android:layout_margin="20dp"
             android:textSize="15sp"/>
 
 </LinearLayout>

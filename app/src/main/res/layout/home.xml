@@ -207,7 +207,34 @@
         android:src="@drawable/ic_discount_home_image"
         app:layout_constraintTop_toBottomOf="@id/bike_text_id" />
 
-
+    <ImageView
+        android:id="@+id/discount_image_id1"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_discount_home_image"
+        app:layout_constraintTop_toBottomOf="@id/bike_text_id" />
+    <ImageView
+        android:id="@+id/discount_image_id2"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_discount_home_image"
+        app:layout_constraintTop_toBottomOf="@id/discount_image_id1" />
+    <ImageView
+        android:id="@+id/discount_image_id3"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_discount_home_image"
+        app:layout_constraintTop_toBottomOf="@id/discount_image_id" />
+    <ImageView
+        android:id="@+id/discount_image_id4"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_discount_home_image"
+        app:layout_constraintTop_toBottomOf="@id/discount_image_id2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -33,9 +33,7 @@
             android:name=".Hotels"
             android:exported="true"/>
 
-        <activity
-            android:name=".MainActivity"
-            android:exported="true"/>
+
 
         <activity
             android:name=".PlaceList"
@@ -45,7 +43,7 @@
             android:name=".Profile"
             android:exported="true"/>
         <activity
-            android:name=".welcome"
+            android:name=".WELCOME_PAGE"
             android:exported="true"
             tools:ignore="DuplicateActivity">
 
