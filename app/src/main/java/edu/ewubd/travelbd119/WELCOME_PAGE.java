@@ -3,6 +3,7 @@ package edu.ewubd.travelbd119;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
@@ -16,7 +17,7 @@ import androidx.appcompat.app.AppCompatActivity;
         import androidx.annotation.Nullable;
         import androidx.appcompat.app.AppCompatActivity;
 
-public class WELCOME_PAGE extends AppCompatActivity {
+public class WELCOME_PAGE extends AppCompatActivity  {
 
     TextView traveler, manager;
 
@@ -35,11 +36,18 @@ public class WELCOME_PAGE extends AppCompatActivity {
     }
 
     private void traveler() {
-        Intent i = new Intent(WELCOME_PAGE.this, Home.class);
+        Intent i = new Intent(WELCOME_PAGE.this, MainActivity.class);
+        i.putExtra("TRAVELER","TRA");
         startActivity(i);
     }
     private void manager() {
-        Intent i = new Intent(this, Home.class);
+        Intent i = new Intent(WELCOME_PAGE.this, MainActivity.class);
+        i.putExtra("TRAVELER","MAN");
         startActivity(i);
     }
+
+
+
+
+
 }

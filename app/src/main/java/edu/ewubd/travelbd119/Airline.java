@@ -15,7 +15,7 @@ public class Airline extends AppCompatActivity {
 
     RadioButton oneway, round_trip, another_city;
     EditText from_city, to_city, departure_date, return_date;
-    Button airline_search, airline1, airline2;
+    Button airline_search, airline1, airline2,bik;
 
     @SuppressLint("MissingInflatedId")
     protected void onCreate(@Nullable Bundle savedInstanceState) {

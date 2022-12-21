@@ -33,11 +33,20 @@
             android:name=".Hotels"
             android:exported="true"/>
 
+        <activity
+            android:name=".Sign_UP"
+            android:exported="true"/>
+
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"/>
+
 
 
         <activity
             android:name=".PlaceList"
             android:exported="true"/>
+
 
         <activity
             android:name=".Profile"
