@@ -1,6 +1,7 @@
 package edu.ewubd.travelbd119;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Patterns;
 import android.view.View;
@@ -32,6 +33,7 @@ public class Sign_UP extends AppCompatActivity {
     ProgressBar progressBar;
     DatabaseReference databaseReference;
     String Check_User;
+    int Traveler=0, Manager=0;
 
 
     @SuppressLint("MissingInflatedId")
@@ -53,6 +55,7 @@ public class Sign_UP extends AppCompatActivity {
         save = findViewById(R.id.signUpSave);
         cancle = findViewById(R.id.signup_cancle);
         progressBar = findViewById(R.id.Progreess_signup);
+        cancle.setOnClickListener(v->cancle());
 
 
         Bundle extras = getIntent().getExtras();
@@ -66,17 +69,31 @@ public class Sign_UP extends AppCompatActivity {
             nid.setVisibility(View.GONE);
             nid1.setVisibility(View.GONE);
             System.out.println("This is a Traveler/USER");
+            Traveler =1;
 
 
         } else if (Check_User.equals("MAN")) {
             System.out.println("This is Admin/Manager");
 
             // user.setVisibility(View.GONE);
+            nid.setVisibility(View.GONE);
+            nid1.setVisibility(View.GONE);
+
+            nid.setVisibility(View.GONE);
+            nid1.setVisibility(View.GONE);
+            System.out.println("This is a Traveler/USER");
+            Manager = 1;
         }
 
   save.setOnClickListener(v->registerUser());
 
 
+    }
+
+    private void cancle() {
+        Intent i = new Intent(Sign_UP.this, MainActivity.class);
+        startActivity(i);
+        finish();
     }
 
     private void registerUser() {
@@ -141,23 +158,28 @@ public class Sign_UP extends AppCompatActivity {
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-
+                        System.out.println("VALUE Of =="+Traveler + Manager);
                         if(task.isSuccessful()){
-                            if(Check_User.equals("TRA")){
+                            if(Traveler==1){
+                                System.out.println("Successfull TRAVERLER=====");
                                 User_info user = new User_info(user_name1, email1,phone1,password1, re_password1);
 
                                 FirebaseDatabase.getInstance().getReference("Traveler")
-                                        .child(user_name1).setValue(user)
+                                        .child(phone1).setValue(user)
                                         .addOnCompleteListener(new OnCompleteListener<Void>() {
                                             @Override
                                             public void onComplete(@NonNull Task<Void> task) {
 
                                                 if(task.isSuccessful()){
                                                     Toast.makeText(Sign_UP.this, "User has been registered successfully.", Toast.LENGTH_LONG).show();
+                                                    Intent i = new Intent(Sign_UP.this, MainActivity.class);
+                                                    startActivity(i);
                                                     progressBar.setVisibility(View.GONE);
                                                 }else{
                                                     //if store not sucessfulll redirect to login page
                                                     Toast.makeText(Sign_UP.this, "Falied to register!# Try again", Toast.LENGTH_LONG).show();
+                                                    Intent i = new Intent(Sign_UP.this, MainActivity.class);
+                                                    startActivity(i);
                                                     progressBar.setVisibility(View.GONE);
 
                                                 }
@@ -167,25 +189,29 @@ public class Sign_UP extends AppCompatActivity {
                                         });
 
                                 progressBar.setVisibility(View.GONE);
-                            }else if(Check_User.equals("MAN")){
+                            }else if(Manager==1){
+                                System.out.println("MAnager success"+Traveler+Manager);
 
-                                Admin_info Admin = new Admin_info(user_name1, email1,phone1,password1, re_password1);
+                                Admin_info admin = new Admin_info(user_name1, email1,phone1,password1, re_password1);
 
                                databaseReference = FirebaseDatabase.getInstance().getReference("Manager");
-                                databaseReference.child(user_name1).setValue(Admin).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                databaseReference.child(phone1).setValue(admin).addOnCompleteListener(new OnCompleteListener<Void>() {
                                             @Override
                                             public void onComplete(@NonNull Task<Void> task) {
 
                                                 if(task.isSuccessful()){
                                                     Toast.makeText(Sign_UP.this, "User has been registered successfully.", Toast.LENGTH_LONG).show();
+                                                    Intent i = new Intent(Sign_UP.this, MainActivity.class);
+                                                    startActivity(i);
                                                     progressBar.setVisibility(View.GONE);
                                                 }else{
                                                     //if store not sucessfulll redirect to login page
                                                     Toast.makeText(Sign_UP.this, "Falied to register! Try again", Toast.LENGTH_LONG).show();
+                                                    Intent i = new Intent(Sign_UP.this, MainActivity.class);
+                                                    startActivity(i);
                                                     progressBar.setVisibility(View.GONE);
 
                                                 }
-
 
                                             }
                                         });

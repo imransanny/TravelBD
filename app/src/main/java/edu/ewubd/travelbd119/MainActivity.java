@@ -110,13 +110,14 @@ public class MainActivity extends AppCompatActivity {
 
     private void SIGNUP() {
 
-
+        progressBar.setVisibility(View.VISIBLE);
         Bundle extras = getIntent().getExtras();
         String TRAVELER_USER = extras.getString("TRAVELER").trim();
 
         Intent i = new Intent(MainActivity.this, Sign_UP.class);
         i.putExtra("TRAVELER1", TRAVELER_USER);
         startActivity(i);
+        progressBar.setVisibility(View.GONE);
     }
 
 }

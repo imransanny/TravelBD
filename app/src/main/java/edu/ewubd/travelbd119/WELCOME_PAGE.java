@@ -39,6 +39,7 @@ public class WELCOME_PAGE extends AppCompatActivity  {
         Intent i = new Intent(WELCOME_PAGE.this, MainActivity.class);
         i.putExtra("TRAVELER","TRA");
         startActivity(i);
+        //finish();
     }
     private void manager() {
         Intent i = new Intent(WELCOME_PAGE.this, MainActivity.class);
