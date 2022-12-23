@@ -2,10 +2,12 @@ package edu.ewubd.travelbd119;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
@@ -30,6 +32,7 @@ public class Sign_UP extends AppCompatActivity {
     TextView nid1;
     EditText nid, user_name, email, phone, pass, re_pass;
     Button save, cancle;
+
     ProgressBar progressBar;
     DatabaseReference databaseReference;
     String Check_User;
@@ -43,6 +46,7 @@ public class Sign_UP extends AppCompatActivity {
         setContentView(R.layout.sign_up);
 
         mAuth = FirebaseAuth.getInstance();
+        SharedPreferences sp = this.getSharedPreferences("Store_Data_SharedPref", MODE_PRIVATE);
 
 
         nid1 = findViewById(R.id.nid_text);
@@ -150,6 +154,16 @@ public class Sign_UP extends AppCompatActivity {
 
         progressBar.setVisibility(View.VISIBLE);
 
+    //shared preference   =================================
+
+        SharedPreferences sp = this.getSharedPreferences("Store_Data_SharedPref", MODE_PRIVATE);
+        SharedPreferences.Editor e = sp.edit();
+        e.putString("NAME", user_name1);
+        e.putString("EMAIL", email1);
+        e.putString("PHONE",phone1);
+        e.putString("PASSWOED",password1);
+        e.putString("RE_ENTER PASSWORD", re_password1);
+        e.apply();
 
 //===========================================================
 //USER Register
