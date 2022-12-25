@@ -8,24 +8,24 @@
     android:orientation="vertical"
     android:background="@drawable/img_1">
 
-<RelativeLayout
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content">
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/TavelBD_home_id"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="TRAVEL BD"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        android:textColor="@color/black"
-        android:gravity="center"
-        android:fontFamily="@font/pacifico"
-        />
+        <TextView
+            android:id="@+id/TavelBD_home_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TRAVEL BD"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:gravity="center"
+            android:fontFamily="@font/pacifico"
+            />
 
 
-</RelativeLayout>
+    </RelativeLayout>
 
     <ProgressBar
         android:visibility="visible"
@@ -54,7 +54,7 @@
         android:layout_height="0dp"
         android:layout_weight="0.5"
         android:orientation="horizontal"
->
+        >
         <Button
             android:id="@+id/back_bt"
             android:layout_width="0dp"

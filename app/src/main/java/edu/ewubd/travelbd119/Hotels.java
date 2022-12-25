@@ -50,7 +50,7 @@ public class Hotels extends AppCompatActivity implements View.OnClickListener {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.all_place_entry);
+        setContentView(R.layout.hotel_entry_page);
 // Create a Cloud Storage reference from the app
         //  StorageReference storageRef = storage.getReference();
 
@@ -93,7 +93,7 @@ public class Hotels extends AppCompatActivity implements View.OnClickListener {
 
                 break;
             case R.id.display_btn_idd:
-                Intent intent = new Intent(Hotels.this, Display_Place_Image.class);
+                Intent intent = new Intent(Hotels.this, Display_HOTEL_Image.class);
                 startActivity(intent);
                 break;
         }
@@ -139,7 +139,7 @@ public class Hotels extends AppCompatActivity implements View.OnClickListener {
 
 
                         //store hole tar ekta link database a store kore rakhte chaile
-                        Upload upload = new Upload(imageName,downloadUri.toString(),imagedes);
+                        Hotels_Upload upload = new Hotels_Upload(imageName,downloadUri.toString(),imagedes);
                         String uploadID = databaseReference.push().getKey();
                         databaseReference.child(uploadID).setValue(upload);
 

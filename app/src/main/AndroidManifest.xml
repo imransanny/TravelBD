@@ -52,6 +52,9 @@
         <activity
             android:name=".Place_Dtails_Information"
             android:exported="true"/>
+        <activity
+            android:name=".Display_HOTEL_Image"
+            android:exported="true"/>
 
 
         <activity

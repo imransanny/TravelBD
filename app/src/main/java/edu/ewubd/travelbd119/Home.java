@@ -20,6 +20,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 
 public class Home extends AppCompatActivity {
@@ -28,7 +32,7 @@ public class Home extends AppCompatActivity {
     ImageView discout, place_logo, Hotel_logo, Air_logo, Car_logo, Bike_logo, Review_logo, profile,ic_menu;
     RecyclerView recyclerView;
     FirebaseAuth mAuth;
-
+DatabaseReference databaseReference;
 
 
 
@@ -39,7 +43,7 @@ public class Home extends AppCompatActivity {
             setContentView(R.layout.home);
             mAuth = FirebaseAuth.getInstance();
 
-
+            databaseReference = FirebaseDatabase.getInstance().getReference("Upload_Place_Image");
 
             place = findViewById(R.id.place_text_id);
             hotel = findViewById(R.id.hotel_text_id);
@@ -74,6 +78,9 @@ public class Home extends AppCompatActivity {
             discout.setOnClickListener(v->discount());
             ic_menu = findViewById(R.id.Hamburger_menu_home_id);
             ic_menu.setOnClickListener(v-> ic_menu());
+
+
+
 
 
 

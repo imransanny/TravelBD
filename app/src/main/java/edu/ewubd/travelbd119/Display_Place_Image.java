@@ -8,8 +8,10 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
@@ -29,6 +31,7 @@ public class Display_Place_Image extends AppCompatActivity {
     private List<Upload> uploadList;
     private ProgressBar progressBar;
     DatabaseReference databaseReference;
+    Button back;
 
 
 
@@ -38,14 +41,17 @@ public class Display_Place_Image extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.display_place_image);
 
-
+       back = findViewById(R.id.back_bt);
+       back.setOnClickListener(v->bactbt());
         recyclerView = findViewById(R.id.recyclerview_id);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         progressBar = findViewById(R.id.progress_iddd);
 progressBar.setVisibility(View.VISIBLE);
         uploadList = new ArrayList<>();
+
         databaseReference = FirebaseDatabase.getInstance().getReference("Upload_Place_Image");
+
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -75,5 +81,11 @@ progressBar.setVisibility(View.VISIBLE);
 
 
 
+    }
+
+    private void bactbt() {
+        Intent i =new Intent(Display_Place_Image.this, Home.class);
+        startActivity(i);
+        finish();
     }
 }
