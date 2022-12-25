@@ -100,7 +100,7 @@ startActivity(i);
         startActivity(i);
     }
     private void place() {
-        Intent i = new Intent(Home.this, PlaceList.class);
+        Intent i = new Intent(Home.this, All_Place_Entry.class);
         startActivity(i);
     }
     private void hotel() {
