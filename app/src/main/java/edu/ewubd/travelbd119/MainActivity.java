@@ -20,6 +20,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -28,7 +29,9 @@ public class MainActivity extends AppCompatActivity {
     EditText username, pass;
     CheckBox remember_user, remember_password;
     private FirebaseAuth mAuth;
-    DatabaseReference databaseReference;
+
+
+
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -43,6 +46,22 @@ public class MainActivity extends AppCompatActivity {
         login = findViewById(R.id.login_main);
 
 
+
+        //check user
+     //   String user_id = mAuth.getCurrentUser().getUid();
+
+
+       // DatabaseReference current_user_db = FirebaseDatabase.getInstance().getReference().child("Traveler").child(user_id);
+
+
+       // System.out.println("user_id = "+user_id);
+        //System.out.println("curent = "+current_user_db);
+
+
+
+
+
+
        //============================================================================
         //shared preference check login
 
@@ -51,10 +70,15 @@ public class MainActivity extends AppCompatActivity {
         String s1 = sp.getString("REMEMBER_USERID", "");
         String s2 = sp.getString("REMEMBER_PASSWORD", "");
 
+
         if(s2.equals("YES")){
 
                     Intent i = new Intent(MainActivity.this, Home.class);
+
                     startActivity(i);
+
+
+
                     // finish()
 
         }
@@ -123,7 +147,7 @@ public class MainActivity extends AppCompatActivity {
                     //redirect to user profile
 
                     startActivity(new Intent(MainActivity.this,Home.class));
-                    //String root = String.valueOf(databaseReference.child(email).getRoot());
+                  //  String root = String.valueOf(databaseReference.child(email).getRoot());
                     //  System.out.println("PRint Roote = "+root);
                     progressBar.setVisibility(View.GONE);
                 }else{

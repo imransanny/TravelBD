@@ -5,20 +5,68 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Display_Place_Image"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@drawable/img_1">
+
+<RelativeLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/TavelBD_home_id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="TRAVEL BD"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:gravity="center"
+        android:fontFamily="@font/pacifico"
+        />
+
+
+</RelativeLayout>
 
     <ProgressBar
+        android:visibility="visible"
+        android:id="@+id/progress_iddd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/prog_id"/>
-
-
+        android:layout_gravity="center"
+        android:layout_centerInParent="true"
+        />
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerview_id"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="0dp"
+        android:layout_weight="8"
+        android:backgroundTint="#FBFB95">
+
 
 
     </androidx.recyclerview.widget.RecyclerView>
+
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.5"
+        android:orientation="horizontal"
+>
+        <Button
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="Back"/>
+        <Button
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="Next"/>
+
+    </LinearLayout>
+
 
 </LinearLayout>

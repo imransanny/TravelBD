@@ -18,9 +18,15 @@ import androidx.appcompat.app.AppCompatActivity;
         import androidx.annotation.Nullable;
         import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 public class WELCOME_PAGE extends AppCompatActivity  {
 
     TextView traveler, manager;
+    FirebaseAuth mAuth;
+    DatabaseReference databaseReference;
 
     @Override
     @SuppressLint("MissingInflatedId")
@@ -36,6 +42,17 @@ public class WELCOME_PAGE extends AppCompatActivity  {
 
         String s1 = sp.getString("REMEMBER_USERID", "");
         String s2 = sp.getString("REMEMBER_PASSWORD", "");
+
+        //check user
+       // String user_id = mAuth.getCurrentUser().getUid();
+
+       //databaseReference = FirebaseDatabase.getInstance().getReference().child("Traveler").child(user_id);
+
+
+     //   System.out.println("user_id = "+user_id);
+       // System.out.println("curent = "+databaseReference);
+
+
 
         if(s2.equals("YES")){
 

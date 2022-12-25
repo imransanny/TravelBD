@@ -1,13 +1,16 @@
 package edu.ewubd.travelbd119;
 
         import android.content.Context;
+        import android.content.Intent;
         import android.view.LayoutInflater;
         import android.view.View;
         import android.view.ViewGroup;
         import android.widget.ImageView;
+        import android.widget.LinearLayout;
         import android.widget.TextView;
 
         import androidx.annotation.NonNull;
+        import androidx.appcompat.app.AppCompatActivity;
         import androidx.recyclerview.widget.RecyclerView;
 
         import com.squareup.picasso.Picasso;
@@ -40,6 +43,7 @@ public class Place_img_Adapter extends RecyclerView.Adapter<Place_img_Adapter.My
         Upload upload = uploadList.get(i);
         myViewHolder.textView.setText(upload.getImageName());
         myViewHolder.image_des.setText(upload.getImage_des());
+        System.out.println(upload);
 
 
         Picasso.get()
@@ -48,6 +52,20 @@ public class Place_img_Adapter extends RecyclerView.Adapter<Place_img_Adapter.My
                 .fit()
                 .centerCrop()
                 .into(myViewHolder.imageView);
+
+
+        myViewHolder.layitem.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent (view.getContext(), Place_Dtails_Information.class);
+                intent.putExtra("IMAGE_NAME",upload.getImageName());
+                intent.putExtra("IMAGE_DESCRIPTION",upload.getImage_des());
+                intent.putExtra("PLACE_IMAGE",upload.getImageUrl());
+
+                view.getContext().startActivity(intent);
+
+            }
+        });
 
 
     }
@@ -61,12 +79,14 @@ public class Place_img_Adapter extends RecyclerView.Adapter<Place_img_Adapter.My
 
         TextView textView, image_des;
         ImageView imageView;
+        LinearLayout layitem ;
 
         public  MyViewHolder(@NonNull View itemView){
             super(itemView);
             textView =   itemView.findViewById(R.id.cardText_id);
             imageView = itemView.findViewById(R.id.card_image_id);
             image_des = itemView.findViewById(R.id.cardDescrip_id);
+            layitem = itemView.findViewById(R.id.lay_item);
 
         }
     }

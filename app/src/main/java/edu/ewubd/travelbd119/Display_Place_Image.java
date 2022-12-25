@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ProgressBar;
@@ -31,6 +32,7 @@ public class Display_Place_Image extends AppCompatActivity {
 
 
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,8 +42,8 @@ public class Display_Place_Image extends AppCompatActivity {
         recyclerView = findViewById(R.id.recyclerview_id);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        progressBar = findViewById(R.id.prog_id);
-
+        progressBar = findViewById(R.id.progress_iddd);
+progressBar.setVisibility(View.VISIBLE);
         uploadList = new ArrayList<>();
         databaseReference = FirebaseDatabase.getInstance().getReference("Upload_Place_Image");
         databaseReference.addValueEventListener(new ValueEventListener() {

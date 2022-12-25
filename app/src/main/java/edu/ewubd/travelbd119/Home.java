@@ -28,7 +28,7 @@ public class Home extends AppCompatActivity {
     ImageView discout, place_logo, Hotel_logo, Air_logo, Car_logo, Bike_logo, Review_logo, profile,ic_menu;
     RecyclerView recyclerView;
     FirebaseAuth mAuth;
-    
+
 
 
 
@@ -38,6 +38,8 @@ public class Home extends AppCompatActivity {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.home);
             mAuth = FirebaseAuth.getInstance();
+
+
 
             place = findViewById(R.id.place_text_id);
             hotel = findViewById(R.id.hotel_text_id);
@@ -74,6 +76,8 @@ public class Home extends AppCompatActivity {
             ic_menu.setOnClickListener(v-> ic_menu());
 
 
+
+
         }
 
     private void ic_menu() {
@@ -100,10 +104,15 @@ startActivity(i);
         startActivity(i);
     }
     private void place() {
-        Intent i = new Intent(Home.this, All_Place_Entry.class);
+
+
+        Intent i = new Intent(Home.this, Display_Place_Image.class);
         startActivity(i);
     }
+
+
     private void hotel() {
+
         Intent i = new Intent(Home.this, Hotels.class);
         startActivity(i);
     } private void air() {

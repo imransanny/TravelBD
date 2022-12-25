@@ -186,7 +186,12 @@ public class Sign_UP extends AppCompatActivity {
 
                                                 if(task.isSuccessful()){
                                                     Toast.makeText(Sign_UP.this, "User has been registered successfully.", Toast.LENGTH_LONG).show();
+
+                                                    String user_id = mAuth.getCurrentUser().getUid();
+                                                    System.out.println("Sigup="+user_id);
+
                                                     Intent i = new Intent(Sign_UP.this, MainActivity.class);
+                                                   // i.putExtra("USER_CUREENT", user_id);
                                                     startActivity(i);
                                                     progressBar.setVisibility(View.GONE);
                                                 }else{
