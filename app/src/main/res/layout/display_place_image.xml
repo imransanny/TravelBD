@@ -59,11 +59,13 @@
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
+            android:backgroundTint="#EDD0C7"
             android:text="Back"/>
         <Button
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
+            android:backgroundTint="#EDD0C7"
             android:text="Next"/>
 
     </LinearLayout>

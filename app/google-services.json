@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "363311719800",
+    "project_id": "project-travel-android-app",
+    "storage_bucket": "project-travel-android-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:363311719800:android:c85a458241ef83423cd48d",
+        "android_client_info": {
+          "package_name": "edu.ewubd.travelbd119"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "363311719800-emo61b85rm5ths74ui4ioa02526huf8q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB5XI7lrbpD4skdxHAKij-PF3hBsOYRdQo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "363311719800-emo61b85rm5ths74ui4ioa02526huf8q.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
