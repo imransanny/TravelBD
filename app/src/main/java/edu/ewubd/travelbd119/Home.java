@@ -21,9 +21,13 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class Home extends AppCompatActivity {
@@ -31,6 +35,7 @@ public class Home extends AppCompatActivity {
     TextView place, hotel, air, car, bike, review;
     ImageView discout, place_logo, Hotel_logo, Air_logo, Car_logo, Bike_logo, Review_logo, profile,ic_menu;
     RecyclerView recyclerView;
+    private List<Upload> uploadList;
     FirebaseAuth mAuth;
 DatabaseReference databaseReference;
 
@@ -43,7 +48,7 @@ DatabaseReference databaseReference;
             setContentView(R.layout.home);
             mAuth = FirebaseAuth.getInstance();
 
-            databaseReference = FirebaseDatabase.getInstance().getReference("Upload_Place_Image");
+
 
             place = findViewById(R.id.place_text_id);
             hotel = findViewById(R.id.hotel_text_id);
@@ -82,9 +87,6 @@ DatabaseReference databaseReference;
 
 
 
-
-
-
         }
 
     private void ic_menu() {
@@ -103,7 +105,8 @@ startActivity(i);
 
     //================================funciton for home page
     private void review() {
-        Intent i = new Intent(Home.this, Best_visit_place_suggestion.class);
+        //Intent i = new Intent(Home.this, Best_visit_place_suggestion.class);
+        Intent i = new Intent(Home.this, Rview_test.class);
         startActivity(i);
     }
     private void discount() {

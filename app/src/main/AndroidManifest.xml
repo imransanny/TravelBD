@@ -55,6 +55,9 @@
         <activity
             android:name=".Display_HOTEL_Image"
             android:exported="true"/>
+  <activity
+            android:name=".Rview_test"
+            android:exported="true"/>
 
 
         <activity

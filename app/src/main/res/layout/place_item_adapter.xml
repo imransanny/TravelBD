@@ -11,8 +11,6 @@
         android:layout_height="match_parent"
         android:orientation="horizontal"
         android:clickable="true"
-        android:paddingBottom="10dp"
-        android:layout_margin="10dp"
         android:background="@drawable/bottom_shade"
         android:foreground="?attr/selectableItemBackground"
         >
