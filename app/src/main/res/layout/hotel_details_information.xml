@@ -30,24 +30,25 @@
             android:layout_alignParentBottom="true"
             android:padding="10dp"
             android:background="#86000000"
-            android:textSize="25sp"
+            android:textSize="22sp"
             android:maxLines="2"
             android:ellipsize="end"
             android:textColor="@color/white"
             android:gravity="center" />
+
         <TextView
             android:id="@+id/Tv_Star"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Star"
-            android:layout_alignParentBottom="true"
-            android:padding="10dp"
-            android:textSize="25sp"
-            android:maxLines="1"
-            android:ellipsize="end"
             android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_centerInParent="true"
+            android:layout_marginBottom="10dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="Star"
             android:textColor="@color/white"
-          />
+            android:textSize="22sp" />
 
 
     </RelativeLayout>
@@ -79,6 +80,7 @@
                    android:id="@+id/Tv_loacation"
                    android:layout_width="match_parent"
                    android:layout_height="wrap_content"
+                   android:layout_marginTop="5dp"
                    android:text="location"
                    android:textSize="15sp"
                    android:textStyle="bold"
