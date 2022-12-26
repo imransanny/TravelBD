@@ -58,6 +58,7 @@ public class Hotel_img_Adapter extends RecyclerView.Adapter<Hotel_img_Adapter.My
         myViewHolder.star.setText(upload.getImage_Star());
         myViewHolder.location.setText(upload.getImage_Location());
         myViewHolder.price.setText(upload.getImage_Price());
+        myViewHolder.contact.setText(upload.getImage_contact());
 
 
 
@@ -73,6 +74,7 @@ public class Hotel_img_Adapter extends RecyclerView.Adapter<Hotel_img_Adapter.My
                 intent.putExtra("PLACE_STAR",upload.getImage_Star());
                 intent.putExtra("PLACE_LOCATION",upload.getImage_Location());
                 intent.putExtra("PLACE_PRICE",upload.getImage_Price());
+                intent.putExtra("PLACE_CONTACT",upload.getImage_contact());
 
                 view.getContext().startActivity(intent);
 
@@ -89,7 +91,7 @@ public class Hotel_img_Adapter extends RecyclerView.Adapter<Hotel_img_Adapter.My
 
     public class MyViewHolder extends RecyclerView.ViewHolder{
 
-        TextView textView, image_des,star,location,price;
+        TextView textView, image_des,star,location,price,contact;
         ImageView imageView;
         LinearLayout layitem ;
 
@@ -101,6 +103,10 @@ public class Hotel_img_Adapter extends RecyclerView.Adapter<Hotel_img_Adapter.My
             price = itemView.findViewById(R.id.price_hotel_id);
             imageView = itemView.findViewById(R.id.card_image_id);
             image_des = itemView.findViewById(R.id.hotel_description);
+            contact = itemView.findViewById(R.id.contact_iddd);
+
+
+
             layitem = itemView.findViewById(R.id.lay_item);
 
         }

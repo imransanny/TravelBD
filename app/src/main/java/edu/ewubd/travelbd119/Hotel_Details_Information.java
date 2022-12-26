@@ -13,7 +13,7 @@ import com.squareup.picasso.Picasso;
 public class Hotel_Details_Information extends AppCompatActivity {
 
     ImageView cover_image;
-    TextView coverTitle, place_description, price, star,location;
+    TextView coverTitle, place_description, price, star,location, contact;
 
 
 
@@ -40,6 +40,8 @@ public class Hotel_Details_Information extends AppCompatActivity {
 
         String place_Price = extras.getString("PLACE_PRICE").trim();
 
+        String place_contact = extras.getString("PLACE_CONTACT").trim();
+
 
 
 
@@ -52,6 +54,7 @@ public class Hotel_Details_Information extends AppCompatActivity {
         star = findViewById(R.id.Tv_Star);
         location = findViewById(R.id.Tv_loacation);
         price = findViewById(R.id.Tv_price);
+        contact = findViewById(R.id.Tv_contact);
 
 
         coverTitle.setText(place_name);
@@ -59,6 +62,7 @@ public class Hotel_Details_Information extends AppCompatActivity {
         star.setText(place_Star);
         location.setText(place_Location);
         price.setText(place_Price);
+        contact.setText(place_contact);
 
         Picasso.get()
                 .load(place_image)

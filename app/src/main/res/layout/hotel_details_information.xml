@@ -85,7 +85,15 @@
                    android:textColor="@color/black"/>
 
 
-            
+            <TextView
+                android:id="@+id/Tv_contact"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Contact"
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
             <TextView
                 android:id="@+id/Tv_desctiop"
                 android:layout_width="match_parent"

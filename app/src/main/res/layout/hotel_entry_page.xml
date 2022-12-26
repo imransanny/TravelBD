@@ -46,28 +46,37 @@
         android:layout_below="@+id/edittex_loaction"
         android:layout_weight="0.25"
         />
+
     <EditText
+        android:id="@+id/edittex_des_hotel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:hint="Enter descriptiony"
-        android:id="@+id/edittex_des_hotel"
         android:layout_below="@+id/edittex_pricehotel"
+        android:layout_marginTop="9dp"
         android:layout_weight="0.25"
-        />
+        android:hint="Enter descriptiony" />
+    <EditText
+        android:id="@+id/edittex_contact_hotel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/edittex_des_hotel"
+        android:layout_marginTop="9dp"
+        android:layout_weight="0.25"
+        android:hint="Enter Conact info" />
 
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="10dp"
         android:id="@+id/image_ide"
-        android:layout_below="@+id/edittex_des_hotel"
+        android:layout_below="@+id/edittex_contact_hotel"
         android:layout_weight="2" />
 
     <Button
         android:id="@+id/select_img"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+       android:layout_alignParentBottom="true"
         android:layout_centerInParent="true"
         android:background="#E1DEDE"
         android:gravity="center"

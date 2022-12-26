@@ -37,7 +37,7 @@ public class Hotels extends AppCompatActivity implements View.OnClickListener {
 
     private Button chosebtn,savebtn, displaybtn;
     private ImageView imageView;
-    private EditText imageNameEditText,imagedesEdittext,imageStar_edittex,image_Location_edittex,image_price_Editt;
+    private EditText imageNameEditText,imagedesEdittext,imageStar_edittex,image_Location_edittex,image_price_Editt,image_contact;
     private ProgressBar progressBar;
     private Uri imageUri;
 
@@ -72,6 +72,7 @@ public class Hotels extends AppCompatActivity implements View.OnClickListener {
         image_Location_edittex = findViewById(R.id.edittex_loaction);
         image_price_Editt = findViewById(R.id.edittex_pricehotel);
         imagedesEdittext = findViewById(R.id.edittex_des_hotel);
+        image_contact = findViewById(R.id.edittex_contact_hotel);
 
 
         savebtn.setOnClickListener(this);
@@ -124,6 +125,7 @@ public class Hotels extends AppCompatActivity implements View.OnClickListener {
         String imageStar = imageStar_edittex.getText().toString().trim();
         String imageLocation = image_Location_edittex.getText().toString().trim();
         String imagePrice = image_price_Editt.getText().toString().trim();
+        String imageContact = image_contact.getText().toString().trim();
 
 
         if(imageName.isEmpty()){
@@ -141,6 +143,10 @@ public class Hotels extends AppCompatActivity implements View.OnClickListener {
         }if(imagePrice.isEmpty()){
             image_price_Editt.setError("Enter the image name");
             image_price_Editt.requestFocus();
+            return;
+        }if(imageContact.isEmpty()){
+            image_contact.setError("Enter the image name");
+            image_contact.requestFocus();
             return;
         }
 
@@ -162,7 +168,7 @@ public class Hotels extends AppCompatActivity implements View.OnClickListener {
 
 
                         //store hole tar ekta link database a store kore rakhte chaile
-                        Hotels_Upload upload = new Hotels_Upload(imageName,downloadUri.toString(),imagedes, imageStar,imageLocation,imagePrice);
+                        Hotels_Upload upload = new Hotels_Upload(imageName,downloadUri.toString(),imagedes, imageStar,imageLocation,imagePrice, imageContact);
                         String uploadID = databaseReference.push().getKey();
                         databaseReference.child(uploadID).setValue(upload);
 
