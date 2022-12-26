@@ -36,7 +36,7 @@ public class Hotel_img_Adapter extends RecyclerView.Adapter<Hotel_img_Adapter.My
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
 
         LayoutInflater layoutInflater = LayoutInflater.from(context);;
-        View view = layoutInflater.inflate(R.layout.hotel_item_adapter,viewGroup,false);
+        View view = layoutInflater.inflate(R.layout.place_item_adapter,viewGroup,false);
         return new MyViewHolder(view);
     }
 

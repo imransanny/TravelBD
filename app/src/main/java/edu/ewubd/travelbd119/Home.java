@@ -116,7 +116,7 @@ startActivity(i);
     private void place() {
 
 
-        Intent i = new Intent(Home.this, Display_Place_Image.class);
+        Intent i = new Intent(Home.this, All_Place_Entry.class);
         startActivity(i);
     }
 

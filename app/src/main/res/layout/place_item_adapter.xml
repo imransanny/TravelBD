@@ -2,26 +2,25 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:backgroundTint="#DAFFFF"
     >
 
     <LinearLayout
         android:id="@+id/lay_item"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:clickable="true"
+        android:paddingBottom="10dp"
+        android:layout_margin="10dp"
         android:background="@drawable/bottom_shade"
         android:foreground="?attr/selectableItemBackground"
         >
 
         <ImageView
             android:id="@+id/card_image_id"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:paddingBottom="2dp"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_margin="5dp"
             android:scaleType="fitXY"/>
 
     <LinearLayout
@@ -33,11 +32,15 @@
             android:id="@+id/cardText_id"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingTop="2dp"
+            android:paddingBottom="2dp"
             android:text="Image name"
+            android:textColor="@color/black"
             android:textSize="20sp"
             android:textStyle="bold"
-            android:textAlignment="center"
+
             />
 
         <TextView
@@ -45,10 +48,12 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="5dp"
+            android:textColor="@color/black"
             android:text="Image Description"
             android:ellipsize="end"
             android:maxLines="4"
-            android:textSize="15sp"
+            android:textSize="16sp"
+            android:layout_margin="5dp"
             />
 
     </LinearLayout>
