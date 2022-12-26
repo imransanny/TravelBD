@@ -9,7 +9,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class KeyValueDB extends SQLiteOpenHelper {
 
     // TABLE INFORMATTION
-    static final String DB_NAME = "KEY_VALUE_IMAGE.DB";
+    static final String DB_NAME = "KEY_VALUE_Profile_info.DB";
     public final String TABLE_KEY_VALUE = "key_value_p";
     public final String KEY = "keyname";
     public final String VALUE = "itemvalue";

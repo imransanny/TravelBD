@@ -3,8 +3,11 @@ package edu.ewubd.travelbd119;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
+import android.util.Base64;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
@@ -27,6 +30,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.squareup.picasso.Picasso;
 
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 
 public class Sign_UP extends AppCompatActivity {
@@ -40,6 +45,8 @@ public class Sign_UP extends AppCompatActivity {
     ProgressBar progressBar;
     DatabaseReference databaseReference;
     String Check_User;
+    String KeyOneTime  ="";
+    String sImage;
 
     int Traveler=0, Manager=0;
 
@@ -175,8 +182,24 @@ public class Sign_UP extends AppCompatActivity {
         e.putString("RE_ENTER PASSWORD", re_password1);
         e.apply();
 
+
+//SQLite ==============================================================
+
+        String bitmap_encode_image = sImage;
+
+
+        KeyOneTime  =  user_name1 + System.currentTimeMillis();
+        System.out.println(KeyOneTime);
+
+        String value = user_name1 + "___"+email1+"___"+phone1+"___"+password1+"___"+re_password1+"___"+bitmap_encode_image+"___";
+        KeyValueDB kvdb = new KeyValueDB(this);
+        kvdb.insertKeyValue(KeyOneTime,value);
+
+
+
+     //   Toast.makeText(getApplicationContext(),"Save Successfully", Toast.LENGTH_LONG).show();
 //===========================================================
-//USER Register
+//USER Register Firebase
 
         mAuth.createUserWithEmailAndPassword(email1,password1)
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
@@ -186,7 +209,7 @@ public class Sign_UP extends AppCompatActivity {
                         if(task.isSuccessful()){
                             if(Traveler==1){
                                 System.out.println("Successfull TRAVERLER=====");
-                                User_info user = new User_info(user_name1, email1,phone1,password1, re_password1);
+                                User_info user = new User_info(user_name1, email1,phone1,password1, re_password1,sImage);
 
                                 FirebaseDatabase.getInstance().getReference("Traveler")
                                         .child(phone1).setValue(user)
@@ -221,7 +244,7 @@ public class Sign_UP extends AppCompatActivity {
                             }else if(Manager==1){
                                 System.out.println("MAnager success"+Traveler+Manager);
 
-                                Admin_info admin = new Admin_info(user_name1, email1,phone1,password1, re_password1);
+                                Admin_info admin = new Admin_info(user_name1, email1,phone1,password1, re_password1, sImage);
 
                                databaseReference = FirebaseDatabase.getInstance().getReference("Manager");
                                 databaseReference.child(phone1).setValue(admin).addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -265,9 +288,28 @@ public class Sign_UP extends AppCompatActivity {
             imageUri = data.getData();
             // Picasso.get(this).load(imageUri);
             Picasso.get().load(imageUri).into(photos);
+
+         //BASE 64
+            try {
+                Bitmap bitmap= MediaStore.Images.Media.getBitmap(getContentResolver(),imageUri);
+                ByteArrayOutputStream stream=new ByteArrayOutputStream();
+                bitmap.compress(Bitmap.CompressFormat.JPEG,100,stream);
+                byte[] bytes=stream.toByteArray();
+                sImage= Base64.encodeToString(bytes,Base64.DEFAULT);
+
+                // System.out.println("SIMAGE = "+sImage);
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+
+
+
         }
     }
     private void openFilechoser() {
+        photos.setImageBitmap(null);
         Intent i = new Intent();
         i.setType("image/*");
         i.setAction(Intent.ACTION_GET_CONTENT);
