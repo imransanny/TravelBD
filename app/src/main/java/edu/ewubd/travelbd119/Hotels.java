@@ -35,11 +35,12 @@ package edu.ewubd.travelbd119;
 
 public class Hotels extends AppCompatActivity implements View.OnClickListener {
 
-    private Button choosebtn, savebtn, displaybtn;
+    private Button chosebtn,savebtn, displaybtn;
     private ImageView imageView;
-    private EditText imageNameEditText,imagedesEdittext;
+    private EditText imageNameEditText,imagedesEdittext,imageStar_edittex,image_Location_edittex,image_price_Editt;
     private ProgressBar progressBar;
     private Uri imageUri;
+
     DatabaseReference databaseReference;
     StorageReference storageReference;
 
@@ -47,6 +48,7 @@ public class Hotels extends AppCompatActivity implements View.OnClickListener {
 
     private static  final int IMAGE_REQUEST = 1; //jokhon image select korbo request 1
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,18 +60,22 @@ public class Hotels extends AppCompatActivity implements View.OnClickListener {
         storageReference = FirebaseStorage.getInstance().getReference("Upload_HOTEL_Image");
 
 
-        choosebtn = findViewById(R.id.chose_image_btn);
+        chosebtn = findViewById(R.id.select_img);
         savebtn = findViewById(R.id.save_btn_idd);
         displaybtn = findViewById(R.id.display_btn_idd);
         progressBar = findViewById(R.id.progreess_id);
 
+
         imageNameEditText = findViewById(R.id.editText_image_btn);
         imageView = findViewById(R.id.image_ide);
-        imagedesEdittext = findViewById(R.id.editText_image_des);
+        imageStar_edittex = findViewById(R.id.edittex_hotel_star);
+        image_Location_edittex = findViewById(R.id.edittex_loaction);
+        image_price_Editt = findViewById(R.id.edittex_pricehotel);
+        imagedesEdittext = findViewById(R.id.edittex_des_hotel);
 
 
         savebtn.setOnClickListener(this);
-        choosebtn.setOnClickListener(this);
+        chosebtn.setOnClickListener(this);
         displaybtn.setOnClickListener(this);
 
 
@@ -79,7 +85,7 @@ public class Hotels extends AppCompatActivity implements View.OnClickListener {
     @Override
     public void onClick(View view) {
         switch (view.getId()){
-            case R.id.chose_image_btn:
+            case R.id.select_img:
                 openFileChoser();
 
                 break;
@@ -115,9 +121,26 @@ public class Hotels extends AppCompatActivity implements View.OnClickListener {
         String imageName = imageNameEditText.getText().toString().trim();
         String imagedes = imagedesEdittext.getText().toString().trim();
 
+        String imageStar = imageStar_edittex.getText().toString().trim();
+        String imageLocation = image_Location_edittex.getText().toString().trim();
+        String imagePrice = image_price_Editt.getText().toString().trim();
+
+
         if(imageName.isEmpty()){
             imageNameEditText.setError("Enter the image name");
             imageNameEditText.requestFocus();
+            return;
+        }  if(imageStar.isEmpty()){
+            imageStar_edittex.setError("Enter the image name");
+            imageStar_edittex.requestFocus();
+            return;
+        }if(imageLocation.isEmpty()){
+            image_Location_edittex.setError("Enter the image name");
+            image_Location_edittex.requestFocus();
+            return;
+        }if(imagePrice.isEmpty()){
+            image_price_Editt.setError("Enter the image name");
+            image_price_Editt.requestFocus();
             return;
         }
 
@@ -139,7 +162,7 @@ public class Hotels extends AppCompatActivity implements View.OnClickListener {
 
 
                         //store hole tar ekta link database a store kore rakhte chaile
-                        Hotels_Upload upload = new Hotels_Upload(imageName,downloadUri.toString(),imagedes);
+                        Hotels_Upload upload = new Hotels_Upload(imageName,downloadUri.toString(),imagedes, imageStar,imageLocation,imagePrice);
                         String uploadID = databaseReference.push().getKey();
                         databaseReference.child(uploadID).setValue(upload);
 

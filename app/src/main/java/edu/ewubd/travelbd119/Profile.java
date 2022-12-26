@@ -21,10 +21,6 @@ public class Profile extends AppCompatActivity {
 
         setContentView(R.layout.profile);
 
-        name = findViewById(R.id.userName);
-        phn = findViewById(R.id.profilePhone);
-        nid = findViewById(R.id.profileNID);
-        email = findViewById(R.id.profileEmail);
 
         proPic = findViewById(R.id.profilePic);
 

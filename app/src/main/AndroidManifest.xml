@@ -58,6 +58,9 @@
   <activity
             android:name=".Rview_test"
             android:exported="true"/>
+  <activity
+            android:name=".Hotel_Details_Information"
+            android:exported="true"/>
 
 
         <activity

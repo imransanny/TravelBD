@@ -3,6 +3,7 @@ package edu.ewubd.travelbd119;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Patterns;
 import android.view.View;
@@ -15,6 +16,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -23,21 +25,25 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.squareup.picasso.Picasso;
 
 import java.nio.charset.StandardCharsets;
 
 public class Sign_UP extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
-    TextView nid1;
+    TextView nid1,photo_select;
     EditText nid, user_name, email, phone, pass, re_pass;
     Button save, cancle;
-
+    private Uri imageUri;
+    ImageView photos;
     ProgressBar progressBar;
     DatabaseReference databaseReference;
     String Check_User;
+
     int Traveler=0, Manager=0;
 
+    private static  final int IMAGE_REQUEST = 1;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -60,6 +66,9 @@ public class Sign_UP extends AppCompatActivity {
         cancle = findViewById(R.id.signup_cancle);
         progressBar = findViewById(R.id.Progreess_signup);
         cancle.setOnClickListener(v->cancle());
+        photo_select = findViewById(R.id.photo_sign_up_profile);
+        photo_select.setOnClickListener(v-> openFilechoser());
+        photos = findViewById(R.id.profilePic);
 
 
         Bundle extras = getIntent().getExtras();
@@ -93,6 +102,7 @@ public class Sign_UP extends AppCompatActivity {
 
 
     }
+
 
     private void cancle() {
         Intent i = new Intent(Sign_UP.this, MainActivity.class);
@@ -244,6 +254,24 @@ public class Sign_UP extends AppCompatActivity {
                     }
                 });
 
+
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == IMAGE_REQUEST && resultCode == RESULT_OK && data!=null && data.getData()!=null){
+            imageUri = data.getData();
+            // Picasso.get(this).load(imageUri);
+            Picasso.get().load(imageUri).into(photos);
+        }
+    }
+    private void openFilechoser() {
+        Intent i = new Intent();
+        i.setType("image/*");
+        i.setAction(Intent.ACTION_GET_CONTENT);
+        startActivityForResult(i,IMAGE_REQUEST);
 
     }
 

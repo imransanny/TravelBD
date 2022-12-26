@@ -36,7 +36,7 @@ public class Hotel_img_Adapter extends RecyclerView.Adapter<Hotel_img_Adapter.My
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
 
         LayoutInflater layoutInflater = LayoutInflater.from(context);;
-        View view = layoutInflater.inflate(R.layout.place_item_adapter,viewGroup,false);
+        View view = layoutInflater.inflate(R.layout.hotel_image_adapter,viewGroup,false);
         return new MyViewHolder(view);
     }
 
@@ -46,7 +46,6 @@ public class Hotel_img_Adapter extends RecyclerView.Adapter<Hotel_img_Adapter.My
         Hotels_Upload upload = uploadList_hotels.get(i);
         myViewHolder.textView.setText(upload.getImageName());
         myViewHolder.image_des.setText(upload.getImage_des());
-        System.out.println(upload);
 
 
         Picasso.get()
@@ -56,14 +55,24 @@ public class Hotel_img_Adapter extends RecyclerView.Adapter<Hotel_img_Adapter.My
                 .centerCrop()
                 .into(myViewHolder.imageView);
 
+        myViewHolder.star.setText(upload.getImage_Star());
+        myViewHolder.location.setText(upload.getImage_Location());
+        myViewHolder.price.setText(upload.getImage_Price());
+
+
+
 
         myViewHolder.layitem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent (view.getContext(), Place_Dtails_Information.class);
+               Intent intent = new Intent (view.getContext(), Hotel_Details_Information.class);
                 intent.putExtra("IMAGE_NAME",upload.getImageName());
                 intent.putExtra("IMAGE_DESCRIPTION",upload.getImage_des());
                 intent.putExtra("PLACE_IMAGE",upload.getImageUrl());
+
+                intent.putExtra("PLACE_STAR",upload.getImage_Star());
+                intent.putExtra("PLACE_LOCATION",upload.getImage_Location());
+                intent.putExtra("PLACE_PRICE",upload.getImage_Price());
 
                 view.getContext().startActivity(intent);
 
@@ -80,15 +89,18 @@ public class Hotel_img_Adapter extends RecyclerView.Adapter<Hotel_img_Adapter.My
 
     public class MyViewHolder extends RecyclerView.ViewHolder{
 
-        TextView textView, image_des;
+        TextView textView, image_des,star,location,price;
         ImageView imageView;
         LinearLayout layitem ;
 
         public  MyViewHolder(@NonNull View itemView){
             super(itemView);
             textView =   itemView.findViewById(R.id.cardText_id);
+            star = itemView.findViewById(R.id.hote_star_id);
+            location = itemView.findViewById(R.id.location_id_hotel);
+            price = itemView.findViewById(R.id.price_hotel_id);
             imageView = itemView.findViewById(R.id.card_image_id);
-            image_des = itemView.findViewById(R.id.cardDescrip_id);
+            image_des = itemView.findViewById(R.id.hotel_description);
             layitem = itemView.findViewById(R.id.lay_item);
 
         }
