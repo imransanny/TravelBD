@@ -36,44 +36,34 @@ public class WELCOME_PAGE extends AppCompatActivity  {
         setContentView(R.layout.welcome_page);
 
 
-        //check if u already login
-        SharedPreferences sp = this.getSharedPreferences("Remember_login_Sharedpref", MODE_PRIVATE);
+        traveler = findViewById(R.id.travel_idd);
+        manager = findViewById(R.id.manage_idd);
+        traveler.setOnClickListener(v-> traveler());
+        manager.setOnClickListener(v-> manager());
 
+        //============================================================================
+        //shared preference check login
+
+        SharedPreferences sp = this.getSharedPreferences("Remember_login_Sharedpref", MODE_PRIVATE);
 
         String s1 = sp.getString("REMEMBER_USERID", "");
         String s2 = sp.getString("REMEMBER_PASSWORD", "");
 
-        //check user
-       // String user_id = mAuth.getCurrentUser().getUid();
-
-       //databaseReference = FirebaseDatabase.getInstance().getReference().child("Traveler").child(user_id);
-
-
-     //   System.out.println("user_id = "+user_id);
-       // System.out.println("curent = "+databaseReference);
 
 
 
         if(s2.equals("YES")){
 
             Intent i = new Intent(WELCOME_PAGE.this, Home.class);
-            startActivity(i);
-            finish();
 
+            startActivity(i);
+
+
+
+             finish();
         }
 
-
-
-        traveler = findViewById(R.id.travel_idd);
-        manager = findViewById(R.id.manage_idd);
-        traveler.setOnClickListener(v-> traveler());
-        manager.setOnClickListener(v-> manager());
-
-
-
-
-
-
+        //=======================================================================
 
 
     }
@@ -82,12 +72,14 @@ public class WELCOME_PAGE extends AppCompatActivity  {
         Intent i = new Intent(WELCOME_PAGE.this, MainActivity.class);
         i.putExtra("TRAVELER","TRA");
         startActivity(i);
-        //finish();
+        finish();
     }
     private void manager() {
         Intent i = new Intent(WELCOME_PAGE.this, MainActivity.class);
         i.putExtra("TRAVELER","MAN");
+
         startActivity(i);
+        finish();
     }
 
 

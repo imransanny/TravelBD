@@ -6,16 +6,15 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-public class KeyValueDB extends SQLiteOpenHelper {
-
+public class KEY_VALUE_Database extends SQLiteOpenHelper {
     // TABLE INFORMATTION
-    static final String DB_NAME = "KEY_VALUE_Profile_info.DB";
-    public final String TABLE_KEY_VALUE = "key_value_p";
+    static final String DB_NAME = "KEY_VALUE_Database.DB";
+    public final String TABLE_KEY_VALUE = "key_value_info_profile";
     public final String KEY = "keyname";
     public final String VALUE = "itemvalue";
     //
-    public KeyValueDB(Context context) {
-        super(context, DB_NAME, null, 5);
+    public KEY_VALUE_Database(Context context) {
+        super(context, DB_NAME, null, 8);
     }
     @Override
     public void onCreate(SQLiteDatabase db) {

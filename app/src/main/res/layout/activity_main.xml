@@ -8,7 +8,17 @@
     android:background="@drawable/bacgroun_travelbd"
     android:orientation="vertical"
     android:gravity="center"
+    android:clickable="true"
+    android:focusableInTouchMode="true"
+
     >
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:text="Travel BD"
+        android:textSize="30sp"
+        android:layout_marginTop="30dp"/>
 
     <LinearLayout
         android:layout_width="match_parent"

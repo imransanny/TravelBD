@@ -38,6 +38,7 @@ public class Home extends AppCompatActivity {
     private List<Upload> uploadList;
     FirebaseAuth mAuth;
 DatabaseReference databaseReference;
+    String Current_USER_1;
 
 
 
@@ -84,17 +85,18 @@ DatabaseReference databaseReference;
             ic_menu = findViewById(R.id.Hamburger_menu_home_id);
             ic_menu.setOnClickListener(v-> ic_menu());
 
-
-
-
         }
-
+//logout
     private void ic_menu() {
 FirebaseAuth.getInstance().signOut();
-
 SharedPreferences sp = this.getSharedPreferences("Remember_login_Sharedpref", MODE_PRIVATE);
-sp.edit().clear().commit();
+sp.edit().clear().apply();
+
+        SharedPreferences sppp = this.getSharedPreferences("CURRENT_USER_INFO", MODE_PRIVATE);
+        sppp.edit().clear().apply();
+
 Intent i = new Intent(Home.this, MainActivity.class);
+//i.putExtra("LOGOUT","YES");
 startActivity(i);
 
 
@@ -136,10 +138,12 @@ startActivity(i);
         startActivity(i);
     }
     private void profile() {
+
         Intent i = new Intent(Home.this, Profile.class);
+
         startActivity(i);
+
+
     }
-
-
 
 }

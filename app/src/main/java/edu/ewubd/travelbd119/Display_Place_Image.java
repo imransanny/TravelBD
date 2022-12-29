@@ -24,6 +24,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class Display_Place_Image extends AppCompatActivity {
 
     private RecyclerView recyclerView;
@@ -32,6 +33,7 @@ public class Display_Place_Image extends AppCompatActivity {
     private ProgressBar progressBar;
     DatabaseReference databaseReference;
     Button back;
+
 
 
 

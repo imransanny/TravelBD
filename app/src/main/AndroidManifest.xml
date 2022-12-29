@@ -35,7 +35,7 @@
             android:exported="true"/>
 
         <activity
-            android:name=".Sign_UP"
+            android:name=".Profile"
             android:exported="true"/>
 
         <activity
@@ -64,7 +64,7 @@
 
 
         <activity
-            android:name=".Profile"
+            android:name=".Sign_UP"
             android:exported="true"/>
         <activity
             android:name=".WELCOME_PAGE"

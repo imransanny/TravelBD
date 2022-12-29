@@ -4,11 +4,20 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.util.Base64;
 import android.util.Patterns;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ProgressBar;
@@ -22,6 +31,8 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity {
 
     TextView signup, login, forgetpass;
@@ -29,7 +40,11 @@ public class MainActivity extends AppCompatActivity {
     EditText username, pass;
     CheckBox remember_user, remember_password;
     private FirebaseAuth mAuth;
-
+    String email1 ;
+    String passs;
+    String re_pass;
+    String keyy;
+    int clear=1;
 
 
 
@@ -71,6 +86,8 @@ public class MainActivity extends AppCompatActivity {
         String s2 = sp.getString("REMEMBER_PASSWORD", "");
 
 
+
+
         if(s2.equals("YES")){
 
                     Intent i = new Intent(MainActivity.this, Home.class);
@@ -80,10 +97,7 @@ public class MainActivity extends AppCompatActivity {
 
 
                     // finish()
-
         }
-
-
 
         //=======================================================================
 
@@ -102,15 +116,12 @@ public class MainActivity extends AppCompatActivity {
         remember_user = findViewById(R.id.checkbox_remember_userID);
         remember_password = findViewById(R.id.checkbox_remember_password);
 
-
-
-
-
-
-
     }
 
     private void Login() {
+
+
+        //validation checking==============================================
         String email = username.getText().toString().trim();
         String password = pass.getText().toString().trim();
 
@@ -136,28 +147,8 @@ public class MainActivity extends AppCompatActivity {
             return;
         }
         progressBar.setVisibility(View.VISIBLE);
+        //validation checking==============================================END
 
-
-
-        mAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-            @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
-
-                if(task.isSuccessful()){
-                    //redirect to user profile
-
-                    startActivity(new Intent(MainActivity.this,Home.class));
-                  //  String root = String.valueOf(databaseReference.child(email).getRoot());
-                    //  System.out.println("PRint Roote = "+root);
-                    progressBar.setVisibility(View.GONE);
-                }else{
-                    Toast.makeText(MainActivity.this, " Failed to login!Please check your credentials", Toast.LENGTH_LONG).show();
-                    progressBar.setVisibility(View.GONE);
-                }
-
-
-            }
-        });
 
         //Shared Preference Store Checkbox
         //============================================================
@@ -184,6 +175,87 @@ public class MainActivity extends AppCompatActivity {
 
         //=============================================
 
+
+
+
+
+        //SQL LITE Login Checking===========================================
+
+        KEY_VALUE_Database db = new KEY_VALUE_Database(this);
+        System.out.println("test1");
+        Cursor rows = db.execute("SELECT * FROM key_value_info_profile");
+        System.out.println("test2");
+        if(rows.getCount() != 0){
+        while (rows.moveToNext()) {
+
+
+             keyy = rows.getString(0);
+            System.out.println("main key"+keyy);
+            String eventData = rows.getString(1);
+            String[] fieldValues = eventData.split("___");
+
+            if(fieldValues.length ==6) {
+                String name1 = fieldValues[0];
+                email1 = fieldValues[1];
+                String phone1 = fieldValues[2];
+                passs = fieldValues[3];
+                 re_pass = fieldValues[4];
+
+                if(email1.equals(email) && re_pass.equals(password)){
+                    Intent i = new Intent(MainActivity.this, Home.class);
+
+                    SharedPreferences sppp = this.getSharedPreferences("CURRENT_USER_INFO", MODE_PRIVATE);
+                    // sppp.edit().clear().commit();
+                    SharedPreferences.Editor ed = sppp.edit();
+                    ed.putString("CURRENT_USER_E", email1);
+                    ed.putString("Current_user_KEy",keyy);
+                    ed.apply();
+                    System.out.println("successfulling login SQL database");
+                    System.out.println(keyy);
+                    startActivity(i);
+                    //======================================SQL Lite Checking End
+                    clear=2;
+break;
+            } }else{
+                System.out.println("length = "+fieldValues.length);
+            }
+
+
+            if (clear==2){
+                break;
+            }
+        }db.close();  }else{
+
+            //Firebase Login===============================================
+            System.out.println("Firebase login");
+            mAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                @Override
+                public void onComplete(@NonNull Task<AuthResult> task) {
+
+                    if(task.isSuccessful()){
+
+                        
+                                        //redirect to user profile
+                        startActivity(new Intent(MainActivity.this,Home.class));
+                        //  String root = String.valueOf(databaseReference.child(email).getRoot());
+                        //  System.out.println("PRint Roote = "+root);
+                        progressBar.setVisibility(View.GONE);
+
+
+                    }else{
+                        Toast.makeText(MainActivity.this, " Failed to login!Please check your credentials", Toast.LENGTH_LONG).show();
+                        progressBar.setVisibility(View.GONE);
+                    }
+
+
+                }
+            });
+            //Firebase Login===============================================END
+
+        }
+
+
+
         progressBar.setVisibility(View.GONE);
 
 
@@ -191,19 +263,30 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-
-
-
     private void SIGNUP() {
 
         progressBar.setVisibility(View.VISIBLE);
+
         Bundle extras = getIntent().getExtras();
         String TRAVELER_USER = extras.getString("TRAVELER").trim();
-
         Intent i = new Intent(MainActivity.this, Sign_UP.class);
         i.putExtra("TRAVELER1", TRAVELER_USER);
         startActivity(i);
         progressBar.setVisibility(View.GONE);
+
+
+    }
+
+
+//hideing otherside touch
+
+    @Override
+    public boolean dispatchTouchEvent(MotionEvent ev) {
+        if (getCurrentFocus() != null) {
+            InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+            imm.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
+        }
+        return super.dispatchTouchEvent(ev);
     }
 
 }

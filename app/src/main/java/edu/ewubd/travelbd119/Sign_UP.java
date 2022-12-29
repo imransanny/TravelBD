@@ -46,6 +46,7 @@ public class Sign_UP extends AppCompatActivity {
     DatabaseReference databaseReference;
     String Check_User;
     String KeyOneTime  ="";
+    private String key = "";
     String sImage;
 
     int Traveler=0, Manager=0;
@@ -78,7 +79,7 @@ public class Sign_UP extends AppCompatActivity {
         photos = findViewById(R.id.profilePic);
 
 
-        Bundle extras = getIntent().getExtras();
+       Bundle extras = getIntent().getExtras();
         String Check_User = extras.getString("TRAVELER1").trim();
         System.out.println("Sign up=" + Check_User + "==");
 
@@ -106,8 +107,7 @@ public class Sign_UP extends AppCompatActivity {
         }
 
   save.setOnClickListener(v->registerUser());
-
-
+        //loadData("rzere1672134286790");
     }
 
 
@@ -142,10 +142,7 @@ public class Sign_UP extends AppCompatActivity {
             email.requestFocus();
             return;
         }if(phone1.isEmpty()){
-           // phone1.setError("Phone number is required");
             Toast.makeText(getApplicationContext(),"please Provide valid phone number",Toast.LENGTH_LONG).show();
-      //      phone1.();
-
             return;
         }if(phone1.length()<10 || phone1.length()>13){
             Toast.makeText(getApplicationContext(),"please Provide valid phone number",Toast.LENGTH_LONG).show();
@@ -171,16 +168,6 @@ public class Sign_UP extends AppCompatActivity {
 
         progressBar.setVisibility(View.VISIBLE);
 
-    //shared preference   =================================
-
-        SharedPreferences sp = this.getSharedPreferences("Store_Data_SharedPref", MODE_PRIVATE);
-        SharedPreferences.Editor e = sp.edit();
-        e.putString("NAME", user_name1);
-        e.putString("EMAIL", email1);
-        e.putString("PHONE",phone1);
-        e.putString("PASSWOED",password1);
-        e.putString("RE_ENTER PASSWORD", re_password1);
-        e.apply();
 
 
 //SQLite ==============================================================
@@ -192,13 +179,28 @@ public class Sign_UP extends AppCompatActivity {
         System.out.println(KeyOneTime);
 
         String value = user_name1 + "___"+email1+"___"+phone1+"___"+password1+"___"+re_password1+"___"+bitmap_encode_image+"___";
-        KeyValueDB kvdb = new KeyValueDB(this);
+        KEY_VALUE_Database kvdb = new KEY_VALUE_Database(this);
         kvdb.insertKeyValue(KeyOneTime,value);
-
 
 
      //   Toast.makeText(getApplicationContext(),"Save Successfully", Toast.LENGTH_LONG).show();
 //===========================================================
+
+
+        //shared preference   =================================
+
+        SharedPreferences sp = this.getSharedPreferences("Store_Data_SharedPref", MODE_PRIVATE);
+        SharedPreferences.Editor e = sp.edit();
+        e.putString("USERKEY",KeyOneTime);
+        e.putString("NAME", user_name1);
+        e.putString("EMAIL", email1);
+        e.putString("PHONE",phone1);
+        e.putString("PASSWOED",password1);
+        e.putString("RE_ENTER PASSWORD", re_password1);
+        e.apply();
+//=========================================
+
+
 //USER Register Firebase
 
         mAuth.createUserWithEmailAndPassword(email1,password1)
@@ -276,7 +278,7 @@ public class Sign_UP extends AppCompatActivity {
                         }
                     }
                 });
-
+//==================================
 
     }
 
@@ -308,6 +310,8 @@ public class Sign_UP extends AppCompatActivity {
 
         }
     }
+
+
     private void openFilechoser() {
         photos.setImageBitmap(null);
         Intent i = new Intent();
@@ -318,6 +322,8 @@ public class Sign_UP extends AppCompatActivity {
     }
 
 
-}
+    }
+
+
 
 
