@@ -36,16 +36,24 @@ public class Airline extends AppCompatActivity {
         airline1 = findViewById(R.id.select_airline1);
         airline2 = findViewById(R.id.select_airline2);
 
+        /*
+
         oneway.setOnClickListener(v -> choose_oneway());
         round_trip.setOnClickListener(v -> choose_rountrip());
         another_city.setOnClickListener(v -> choose_anotherway());
-
-        airline_search.setOnClickListener(v -> available_airlines());
         airline1.setOnClickListener(v -> select_airline_1());
         airline2.setOnClickListener(v -> select_airline_2());
 
+         */
+
+        airline_search.setOnClickListener(v -> available_airlines());
     }
 
+    private void available_airlines() {
+        Intent i = new Intent(Airline.this, Home.class);
+        startActivity(i);
+    }
+/*
     private void choose_oneway() {
         Intent i = new Intent(Airline.this, Home.class);
         startActivity(i);
@@ -58,11 +66,6 @@ public class Airline extends AppCompatActivity {
         Intent i = new Intent(Airline.this, Home.class);
         startActivity(i);
     }
-
-    private void available_airlines() {
-        Intent i = new Intent(Airline.this, Home.class);
-        startActivity(i);
-    }
     private void select_airline_1() {
         Intent i = new Intent(Airline.this, Home.class);
         startActivity(i);
@@ -70,6 +73,7 @@ public class Airline extends AppCompatActivity {
     private void select_airline_2() {
         Intent i = new Intent(Airline.this, Home.class);
         startActivity(i);
-    }
+    }   */
+
 
 }

@@ -160,6 +160,7 @@
             android:layout_weight="1"
             android:contentDescription="@android:string/yes"
             android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="@+id/car_noah"
             app:layout_constraintStart_toStartOf="@+id/car_noah"
             app:layout_constraintTop_toBottomOf="@+id/car_noah"
             app:srcCompat="@drawable/car0212" />
