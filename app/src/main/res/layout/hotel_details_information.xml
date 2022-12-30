@@ -62,9 +62,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
-            android:orientation="vertical">
-
-
+            android:orientation="vertical"
+            >
 
                <TextView
                    android:id="@+id/Tv_price"
@@ -87,20 +86,45 @@
                    android:textColor="@color/black"/>
 
 
-            <TextView
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:orientation="horizontal">
+           <ImageView
+               android:layout_weight="0.1"
+               android:layout_width="0dp"
+               android:layout_gravity="center"
+               android:layout_height="wrap_content"
+               android:src="@drawable/ic_baseline_call_24"/>
+           <TextView
+               android:layout_weight="1"
                 android:id="@+id/Tv_contact"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
                 android:text="Contact"
+               android:gravity="center|left"
                 android:textColor="@color/black"
                 android:textSize="15sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+               />
 
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:layout_weight="0.2"
+                android:id="@+id/floatAction_buttion_id"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#FF9800"
+                android:foreground="?attr/selectableItemBackground"
+               android:src="@drawable/ic_baseline_message_24"
+
+                />
+
+
+       </LinearLayout>
             <TextView
                 android:id="@+id/Tv_desctiop"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="আর্জেন্টিনার বিপক্ষে ফাইনালের আগে একটু যেন আতঙ্ক ছড়িয়ে পড়েছে ফ্রান্স দলে। ‘ক্যামেল ভাইরাস’–এ আক্রান্ত হয়ে মরক্কোর বিপক্ষে সেমিফাইনালে খেলতে পারেননি ফ্রান্সের ডিফেন্ডার দায়োত উপামেকানো ও আন্দ্রিয়াঁ রাবিও। এবার ফরোয়ার্ড কিংসলি কোমানও একই ভাইরাসে আক্রান্ত বলে মনে করা হচ্ছে।"
                 android:layout_alignParentBottom="true"
                 android:padding="10dp"
                 android:textColor="#BC000000"
@@ -110,7 +134,12 @@
 
 
         </LinearLayout>
+
+
+
+
     </ScrollView>
+
 
 
 </RelativeLayout>

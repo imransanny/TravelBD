@@ -43,8 +43,6 @@ public class Display_Place_Image extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.display_place_image);
 
-        back = findViewById(R.id.back_bt);
-        back.setOnClickListener(v -> bactbt());
         recyclerView = findViewById(R.id.recyclerview_id);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -90,11 +88,7 @@ public class Display_Place_Image extends AppCompatActivity {
         }).start();
     }
 
-    private void bactbt() {
-        Intent i =new Intent(Display_Place_Image.this, Home.class);
-        startActivity(i);
-        finish();
-    }
+
 }
 
 

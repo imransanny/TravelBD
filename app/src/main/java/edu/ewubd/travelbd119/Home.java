@@ -41,15 +41,12 @@ DatabaseReference databaseReference;
     String Current_USER_1;
 
 
-
         @SuppressLint("MissingInflatedId")
         @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.home);
             mAuth = FirebaseAuth.getInstance();
-
-
 
             place = findViewById(R.id.place_text_id);
             hotel = findViewById(R.id.hotel_text_id);
@@ -118,15 +115,25 @@ startActivity(i);
     private void place() {
 
 
-        Intent i = new Intent(Home.this, All_Place_Entry.class);
+        Intent i = new Intent(Home.this, Display_Place_Image.class);
         startActivity(i);
     }
 
 
     private void hotel() {
+        SharedPreferences users = this.getSharedPreferences("TRAVELER", MODE_PRIVATE);
+        String curr_user = users.getString("TRAVELER", "");
+ if(curr_user.equals("TRA")){
+     Intent i = new Intent(Home.this, Display_HOTEL_Image.class);
+     startActivity(i);
+ }else if(curr_user.equals("MAN")) {
+     Intent i = new Intent(Home.this, Hotels.class);
+     startActivity(i);
+ }else{
+     System.out.println("Somethig Wrong");
+     System.out.println(curr_user);
+ }
 
-        Intent i = new Intent(Home.this, Hotels.class);
-        startActivity(i);
     } private void air() {
         Intent i = new Intent(Home.this, Airline.class);
         startActivity(i);

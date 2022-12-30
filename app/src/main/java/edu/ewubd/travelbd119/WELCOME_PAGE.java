@@ -93,8 +93,4 @@ public class WELCOME_PAGE extends AppCompatActivity  {
         finish();
     }
 
-
-
-
-
 }
