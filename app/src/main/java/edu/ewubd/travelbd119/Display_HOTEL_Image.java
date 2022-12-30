@@ -46,10 +46,17 @@ public class Display_HOTEL_Image extends AppCompatActivity {
         progressBar.setVisibility(View.VISIBLE);
         uploadList_hotels = new ArrayList<>();
         databaseReference = FirebaseDatabase.getInstance().getReference("Upload_HOTEL_Image");
+
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 //database ttheke data anbo
+
+
+            //Thread=========================
+                new Thread(new Runnable() {
+                    public void run() {
+
 
                 for(DataSnapshot dataSnapshot1: dataSnapshot.getChildren()){
                     Hotels_Upload upload = dataSnapshot1.getValue(Hotels_Upload.class);
@@ -66,6 +73,10 @@ public class Display_HOTEL_Image extends AppCompatActivity {
                 progressBar.setVisibility(View.INVISIBLE);
             }
 
+
+            }).start(); }
+
+
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
                 Toast.makeText(getApplicationContext(),"Error : "+error.getMessage(),Toast.LENGTH_LONG).show();
@@ -77,3 +88,4 @@ public class Display_HOTEL_Image extends AppCompatActivity {
 
     }
 }
+

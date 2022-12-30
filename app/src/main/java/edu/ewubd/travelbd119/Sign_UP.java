@@ -214,7 +214,7 @@ public class Sign_UP extends AppCompatActivity {
                                 User_info user = new User_info(user_name1, email1,phone1,password1, re_password1,sImage);
 
                                 FirebaseDatabase.getInstance().getReference("Traveler")
-                                        .child(phone1).setValue(user)
+                                        .child(email1).setValue(user)
                                         .addOnCompleteListener(new OnCompleteListener<Void>() {
                                             @Override
                                             public void onComplete(@NonNull Task<Void> task) {
@@ -249,7 +249,7 @@ public class Sign_UP extends AppCompatActivity {
                                 Admin_info admin = new Admin_info(user_name1, email1,phone1,password1, re_password1, sImage);
 
                                databaseReference = FirebaseDatabase.getInstance().getReference("Manager");
-                                databaseReference.child(phone1).setValue(admin).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                databaseReference.child(email1).setValue(admin).addOnCompleteListener(new OnCompleteListener<Void>() {
                                             @Override
                                             public void onComplete(@NonNull Task<Void> task) {
 

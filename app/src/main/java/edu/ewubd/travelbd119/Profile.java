@@ -85,13 +85,35 @@ public class Profile extends AppCompatActivity {
         */
        loadDataa();
 
-
-
     }
 
 
 
     private void loadDataa() {
+
+//check current user========================================
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        if (user != null) {
+            // User is signed in
+            System.out.println("User is signed in");
+            String name = user.getDisplayName();
+            String email = user.getEmail();
+            String uid = user.getUid();
+            String phon = user.getPhoneNumber();
+            System.out.println("name"+name);
+            System.out.println("email = +"+email);
+            System.out.println("uid"+uid);
+            System.out.println("Phone"+phon);
+
+
+        } else {
+            System.out.println("not sign in");
+        }
+
+        //check current user========================================END
+
+
+
 
 
         SharedPreferences sppp = this.getSharedPreferences("CURRENT_USER_INFO", MODE_PRIVATE);
@@ -101,7 +123,8 @@ public class Profile extends AppCompatActivity {
 
         //Store Data in data base==========================
         System.out.println("test");
-        if (!c_key.equals(null)) {
+        if (!c_key.equals("")) {
+            System.out.println("ckey is null");
             KEY_VALUE_Database db = new KEY_VALUE_Database(this);
             String v = db.getValueByKey(c_key);
             String[] fieldValues = v.split("___");
@@ -128,7 +151,6 @@ public class Profile extends AppCompatActivity {
             }
 
         } else {
-
 
             //firebase profile=================================
 
