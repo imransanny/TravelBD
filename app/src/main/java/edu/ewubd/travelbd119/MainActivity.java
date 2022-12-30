@@ -40,12 +40,12 @@ public class MainActivity extends AppCompatActivity {
     EditText username, pass;
     CheckBox remember_user, remember_password;
     private FirebaseAuth mAuth;
-    String email1 ;
+    String email1;
     String passs;
     String re_pass;
     String keyy;
-    int clear=1;
-
+    int clear = 1;
+    String lastrow, firstrow;
 
 
     @SuppressLint("MissingInflatedId")
@@ -61,23 +61,18 @@ public class MainActivity extends AppCompatActivity {
         login = findViewById(R.id.login_main);
 
 
-
         //check user
-     //   String user_id = mAuth.getCurrentUser().getUid();
+        //   String user_id = mAuth.getCurrentUser().getUid();
 
 
-       // DatabaseReference current_user_db = FirebaseDatabase.getInstance().getReference().child("Traveler").child(user_id);
+        // DatabaseReference current_user_db = FirebaseDatabase.getInstance().getReference().child("Traveler").child(user_id);
 
 
-       // System.out.println("user_id = "+user_id);
+        // System.out.println("user_id = "+user_id);
         //System.out.println("curent = "+current_user_db);
 
 
-
-
-
-
-       //============================================================================
+        //============================================================================
         //shared preference check login
 
         SharedPreferences sp = this.getSharedPreferences("Remember_login_Sharedpref", MODE_PRIVATE);
@@ -86,33 +81,27 @@ public class MainActivity extends AppCompatActivity {
         String s2 = sp.getString("REMEMBER_PASSWORD", "");
 
 
+        if (s2.equals("YES")) {
+
+            Intent i = new Intent(MainActivity.this, Home.class);
+
+            startActivity(i);
 
 
-        if(s2.equals("YES")){
-
-                    Intent i = new Intent(MainActivity.this, Home.class);
-
-                    startActivity(i);
-
-
-
-                    // finish()
+            // finish()
         }
 
         //=======================================================================
 
 
-
-
-
         signup = findViewById(R.id.signup_main_id);
-        signup.setOnClickListener(v->SIGNUP());
+        signup.setOnClickListener(v -> SIGNUP());
 
         forgetpass = findViewById(R.id.forget_main);
 
         pass = findViewById(R.id.pass_main);
         progressBar = findViewById(R.id.Progreess_mainactivity);
-        login.setOnClickListener(v->Login());
+        login.setOnClickListener(v -> Login());
         remember_user = findViewById(R.id.checkbox_remember_userID);
         remember_password = findViewById(R.id.checkbox_remember_password);
 
@@ -125,23 +114,23 @@ public class MainActivity extends AppCompatActivity {
         String email = username.getText().toString().trim();
         String password = pass.getText().toString().trim();
 
-        if(email.isEmpty()){
+        if (email.isEmpty()) {
             username.setError("Email is required!");
             username.requestFocus();
             return;
 
         }
-        if(!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
+        if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
             username.setError("Please enter a valid email!");
             username.requestFocus();
             return;
         }
-        if(password.isEmpty()){
+        if (password.isEmpty()) {
             pass.setError("Password is required");
             pass.requestFocus();
             return;
         }
-        if(password.length()<6){
+        if (password.length() < 6) {
             pass.setError("Min password length is 6 characters!");
             pass.requestFocus();
             return;
@@ -156,27 +145,24 @@ public class MainActivity extends AppCompatActivity {
         SharedPreferences sp = this.getSharedPreferences("Remember_login_Sharedpref", MODE_PRIVATE);
         SharedPreferences.Editor e = sp.edit();
 
-        if(remember_user.isChecked()){
+        if (remember_user.isChecked()) {
             e.putString("REMEMBER_USERID", "YES");
             System.out.println("click user yes");
-        }else{
+        } else {
             e.putString("REMEMBER_USERID", "NO");
             System.out.println("click user no");
         }
 
-        if(remember_password.isChecked()){
+        if (remember_password.isChecked()) {
             e.putString("REMEMBER_PASSWORD", "YES");
             System.out.println("click pass yes");
-        }else{
+        } else {
             e.putString("REMEMBER_PASSWORD", "NO");
             System.out.println("click pass no");
         }
         e.apply();
 
         //=============================================
-
-
-
 
 
         //SQL LITE Login Checking===========================================
@@ -186,70 +172,90 @@ public class MainActivity extends AppCompatActivity {
         Cursor rows = db.execute("SELECT * FROM key_value_info_profile");
 
         System.out.println("test2");
-        if(rows.getCount() != 0){
-        while (rows.moveToNext()) {
 
-             keyy = rows.getString(0);
-            System.out.println("main key"+keyy);
-            String eventData = rows.getString(1);
-            String[] fieldValues = eventData.split("___");
+//  while (rows.moveToLast()){
+//      System.out.println("workinmg");
+//     lastrow = rows.getString(0);
+//      System.out.println("LAst row =="+lastrow);
+//  }
+//     while (rows.moveToFirst()){
+//         firstrow =  rows.getString(0);
+//         System.out.println("First row =="+firstrow);
+//     }
 
-            if(fieldValues.length ==6) {
-                String name1 = fieldValues[0];
-                email1 = fieldValues[1];
-                String phone1 = fieldValues[2];
-                passs = fieldValues[3];
-                 re_pass = fieldValues[4];
 
-                if(email1.equals(email) && re_pass.equals(password)){
-                    Intent i = new Intent(MainActivity.this, Home.class);
+        if (rows.getCount() != 0) {
+            while (rows.moveToNext()) {
 
-                    SharedPreferences sppp = this.getSharedPreferences("CURRENT_USER_INFO", MODE_PRIVATE);
-                    // sppp.edit().clear().commit();
-                    SharedPreferences.Editor ed = sppp.edit();
-                    ed.putString("CURRENT_USER_E", email1);
-                    ed.putString("Current_user_KEy",keyy);
-                    ed.apply();
-                    System.out.println("successfulling login SQL database");
-                    System.out.println(keyy);
-                    startActivity(i);
-                    //======================================SQL Lite Checking End
-                    clear=2;
-break;
-            }else{
-                    if(rows.moveToLast()){
-                     String lastkey = rows.getString(0);
-                        System.out.println("last key"+lastkey);
-                        if (keyy.equals(lastkey)){
+                keyy = rows.getString(0);
+                System.out.println("main key" + keyy);
+                String eventData = rows.getString(1);
+                String[] fieldValues = eventData.split("___");
+
+                if (fieldValues.length == 6) {
+                    System.out.println("vvalue 6");
+                    String name1 = fieldValues[0];
+                    email1 = fieldValues[1];
+                    String phone1 = fieldValues[2];
+                    passs = fieldValues[3];
+                    re_pass = fieldValues[4];
+
+                    if (email1.equals(email) && re_pass.equals(password)) {
+                        System.out.println("vvalue 7");
+                        Intent i = new Intent(MainActivity.this, Home.class);
+
+                        SharedPreferences sppp = this.getSharedPreferences("CURRENT_USER_INFO", MODE_PRIVATE);
+                        // sppp.edit().clear().commit();
+                        SharedPreferences.Editor ed = sppp.edit();
+                        ed.putString("CURRENT_USER_E", email1);
+                        ed.putString("Current_user_KEy", keyy);
+                        ed.apply();
+                        System.out.println("successfulling login SQL database");
+                        System.out.println(keyy);
+                        startActivity(i);
+                        //======================================SQL Lite Checking End
+                        clear = 2;
+                        break;
+                    } else {
+                        System.out.println("vvalue 8");
+
+                        if(rows.moveToLast()){
+                             lastrow= rows.getString(0);
+                        }
+
+                        if (lastrow.equals(keyy)) {
+                            System.out.println("last key succes" + lastrow);
+                            //  if (keyy.equals(lastkey)){
                             FIRE();
-                        }else{
-                            break;
+                        } else {
+                            System.out.println("vvalue 9");
+                          //  break;
                         }
 
 
                     }
+                    System.out.println("vvalue 10");
                     System.out.println("Row has been 0");
 
 
-
+                    // }
+                } else {
+                    System.out.println("length = " + fieldValues.length);
                 }
-            }else{
-                System.out.println("length = "+fieldValues.length);
+
+
+                if (clear == 2) {
+                    break;
+                }
             }
+            db.close();
 
-
-            if (clear==2){
-                break;
-            }
-        }
-        db.close();
-
-        }else if(rows.getCount() ==0){
+        } else if (rows.getCount() == 0) {
             System.out.println("Row has been null");
             FIRE();
         }
 
-      /*      //Firebase Login===============================================
+      /*    //Firebase Login===============================================
             System.out.println("Firebase login");
             mAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                 @Override
@@ -274,11 +280,11 @@ break;
                 }
             });
             //Firebase Login===============================================END
-*/
+
 
         progressBar.setVisibility(View.GONE);
 
-
+*/
 
     }
 
@@ -289,21 +295,21 @@ break;
         System.out.println("HEre firebase login");
         //Firebase Login===============================================
         System.out.println("Firebase login");
-        mAuth.signInWithEmailAndPassword(emaill,passwordd).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+        mAuth.signInWithEmailAndPassword(emaill, passwordd).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
 
-                if(task.isSuccessful()){
+                if (task.isSuccessful()) {
 
 
                     //redirect to user profile
-                    startActivity(new Intent(MainActivity.this,Home.class));
+                    startActivity(new Intent(MainActivity.this, Home.class));
                     //  String root = String.valueOf(databaseReference.child(email).getRoot());
                     //  System.out.println("PRint Roote = "+root);
                     progressBar.setVisibility(View.GONE);
 
 
-                }else{
+                } else {
                     Toast.makeText(MainActivity.this, " Failed to login!Please check your credentials", Toast.LENGTH_LONG).show();
                     progressBar.setVisibility(View.GONE);
                 }
@@ -319,10 +325,10 @@ break;
 
         progressBar.setVisibility(View.VISIBLE);
 
-       // Bundle extras = getIntent().getExtras();
-       // String TRAVELER_USER = extras.getString("TRAVELER").trim();
+        // Bundle extras = getIntent().getExtras();
+        // String TRAVELER_USER = extras.getString("TRAVELER").trim();
         Intent i = new Intent(MainActivity.this, Sign_UP.class);
-       // i.putExtra("TRAVELER1", TRAVELER_USER);
+        // i.putExtra("TRAVELER1", TRAVELER_USER);
         startActivity(i);
         progressBar.setVisibility(View.GONE);
 
