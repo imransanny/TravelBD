@@ -8,6 +8,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -16,6 +17,7 @@ import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.navigation.NavigationView;
@@ -39,6 +41,13 @@ public class Home extends AppCompatActivity {
     FirebaseAuth mAuth;
 DatabaseReference databaseReference;
     String Current_USER_1;
+    private Hotel_img_Adapter myAdapter;
+    private List<Hotels_Upload> uploadList_hotels;
+    private ProgressBar progressBar;
+
+
+
+
 
 
         @SuppressLint("MissingInflatedId")
@@ -47,8 +56,7 @@ DatabaseReference databaseReference;
             super.onCreate(savedInstanceState);
             setContentView(R.layout.home);
 
-
-
+         //   recyclerView.setNestedScrollingEnabled(false);
             mAuth = FirebaseAuth.getInstance();
 
             place = findViewById(R.id.place_text_id);
@@ -85,6 +93,34 @@ DatabaseReference databaseReference;
             ic_menu = findViewById(R.id.Hamburger_menu_home_id);
             ic_menu.setOnClickListener(v-> ic_menu());
 
+//====================================recycaler view
+
+            recyclerView = findViewById(R.id.recyclerview_id);
+            recyclerView.setHasFixedSize(true);
+            recyclerView.setLayoutManager(new LinearLayoutManager(this));
+            uploadList_hotels = new ArrayList<>();
+            databaseReference = FirebaseDatabase.getInstance().getReference("Upload_HOTEL_Image");
+            databaseReference.addValueEventListener(new ValueEventListener(){
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+//database ttheke data anbo
+
+                    for(DataSnapshot dataSnapshot1: dataSnapshot.getChildren()){
+                        Hotels_Upload upload = dataSnapshot1.getValue(Hotels_Upload.class);
+                        uploadList_hotels.add(upload);
+                    }
+                    myAdapter = new Hotel_img_Adapter(Home.this, uploadList_hotels);
+                    recyclerView.setAdapter(myAdapter);
+                    //progressBar.setVisibility(View.INVISIBLE);
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+                    Toast.makeText(getApplicationContext(),"Error : "+error.getMessage(),Toast.LENGTH_LONG).show();
+                  //  progressBar.setVisibility(View.INVISIBLE);
+                }
+            });
+//===========================================
         }
 //logout
     private void ic_menu() {
