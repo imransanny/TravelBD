@@ -197,7 +197,7 @@ public class Profile extends AppCompatActivity {
 
             System.out.println("else===");
 final ArrayList<String> list = new ArrayList<>();
-DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Traveler").child(uid);
+DatabaseReference reference = FirebaseDatabase.getInstance().getReference("USER").child(uid);
 
         reference.addValueEventListener(new ValueEventListener() {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
