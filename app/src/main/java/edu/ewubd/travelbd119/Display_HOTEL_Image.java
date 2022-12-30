@@ -53,12 +53,12 @@ public class Display_HOTEL_Image extends AppCompatActivity {
 //database ttheke data anbo
 
 
-            //Thread=========================
-                new Thread(new Runnable() {
-                    public void run() {
+                //Thread=========================
+                //   new Thread(new Runnable() {
+                //     public void run() {
 
 
-                for(DataSnapshot dataSnapshot1: dataSnapshot.getChildren()){
+                for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
                     Hotels_Upload upload = dataSnapshot1.getValue(Hotels_Upload.class);
                     uploadList_hotels.add(upload);
                 }
@@ -68,13 +68,11 @@ public class Display_HOTEL_Image extends AppCompatActivity {
                 recyclerView.setAdapter(myAdapter);
 
 
-
-
                 progressBar.setVisibility(View.INVISIBLE);
             }
 
 
-            }).start(); }
+            // }).start(); }
 
 
             @Override
@@ -83,7 +81,6 @@ public class Display_HOTEL_Image extends AppCompatActivity {
                 progressBar.setVisibility(View.INVISIBLE);
             }
         });
-
 
 
     }

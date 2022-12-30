@@ -48,6 +48,7 @@ public class Profile extends AppCompatActivity {
     String KeyOneTime  ="";
     String key;
     FirebaseUser userrr;
+    String uid;
 
 
 
@@ -98,14 +99,54 @@ public class Profile extends AppCompatActivity {
             System.out.println("User is signed in");
             String name = user.getDisplayName();
             String email = user.getEmail();
-            String uid = user.getUid();
+              uid = user.getUid();
             String phon = user.getPhoneNumber();
             System.out.println("name"+name);
             System.out.println("email = +"+email);
             System.out.println("uid"+uid);
             System.out.println("Phone"+phon);
 
+          /* final ArrayList<String> currentlist = new ArrayList<>();
+            DatabaseReference r = FirebaseDatabase.getInstance().getReference("Traveler").child(uid);
+            r.addValueEventListener(new ValueEventListener() {
+                                                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                                    currentlist.clear();
 
+                                                    for(DataSnapshot dataSnapshot1:dataSnapshot.getChildren()){
+                                                        // String value = snapsho.getValue(String.class);
+                                                        currentlist.add(dataSnapshot1.getValue().toString());
+                                                    }
+                                                    System.out.println("-"+currentlist.size());
+                                                    for(int i=0 ; i<currentlist.size();i++){
+                                                        // System.out.println(list.get(i));
+                                                        String sImage1 = currentlist.get(0);
+                                                        String  email1 = currentlist.get(1);
+                                                        String pass1 = currentlist.get(2);
+                                                        String   phone1 = currentlist.get(3);
+                                                        String repass1= currentlist.get(4);
+                                                        String   username1 = currentlist.get(5);
+
+                                                        profile_name.setText(username1);
+                                                        profile_email.setText(email1);
+                                                        profile_phn.setText(phone1);
+                                                        System.out.println(email1);
+                                                        System.out.println(phone1);
+                                                        // decode base64 string
+                                                        byte[] bytes = Base64.decode(sImage1, Base64.DEFAULT);
+                                                        Bitmap bitmap1 = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
+                                                        profile_proPic.setImageBitmap(bitmap1);
+
+                                                    }
+
+
+                                                }
+
+                public void onCancelled(@NonNull DatabaseError error) {
+                    Toast.makeText(Profile.this, "Fail to get data.", Toast.LENGTH_SHORT).show();
+                }
+            });
+*/
+//================
         } else {
             System.out.println("not sign in");
         }
@@ -156,7 +197,7 @@ public class Profile extends AppCompatActivity {
 
             System.out.println("else===");
 final ArrayList<String> list = new ArrayList<>();
-DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Traveler").child("01636454867");
+DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Traveler").child(uid);
 
         reference.addValueEventListener(new ValueEventListener() {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {

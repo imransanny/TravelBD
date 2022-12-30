@@ -26,6 +26,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.squareup.picasso.Picasso;
@@ -60,6 +61,7 @@ public class Sign_UP extends AppCompatActivity {
         setContentView(R.layout.sign_up);
 
         mAuth = FirebaseAuth.getInstance();
+
         SharedPreferences sp = this.getSharedPreferences("Store_Data_SharedPref", MODE_PRIVATE);
 
 
@@ -203,6 +205,8 @@ public class Sign_UP extends AppCompatActivity {
 
 //USER Register Firebase
 
+
+
         mAuth.createUserWithEmailAndPassword(email1,password1)
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
@@ -213,17 +217,14 @@ public class Sign_UP extends AppCompatActivity {
                                 System.out.println("Successfull TRAVERLER=====");
                                 User_info user = new User_info(user_name1, email1,phone1,password1, re_password1,sImage);
 
-                                FirebaseDatabase.getInstance().getReference("Traveler")
-                                        .child(email1).setValue(user)
+                                FirebaseDatabase.getInstance().getReference("USER")
+                                        .child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(user)
                                         .addOnCompleteListener(new OnCompleteListener<Void>() {
                                             @Override
                                             public void onComplete(@NonNull Task<Void> task) {
 
                                                 if(task.isSuccessful()){
                                                     Toast.makeText(Sign_UP.this, "User has been registered successfully.", Toast.LENGTH_LONG).show();
-
-                                                    String user_id = mAuth.getCurrentUser().getUid();
-                                                    System.out.println("Sigup="+user_id);
 
                                                     Intent i = new Intent(Sign_UP.this, MainActivity.class);
                                                    // i.putExtra("USER_CUREENT", user_id);
@@ -248,8 +249,8 @@ public class Sign_UP extends AppCompatActivity {
 
                                 Admin_info admin = new Admin_info(user_name1, email1,phone1,password1, re_password1, sImage);
 
-                               databaseReference = FirebaseDatabase.getInstance().getReference("Manager");
-                                databaseReference.child(email1).setValue(admin).addOnCompleteListener(new OnCompleteListener<Void>() {
+                               databaseReference = FirebaseDatabase.getInstance().getReference("ADMIN");
+                                databaseReference.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(admin).addOnCompleteListener(new OnCompleteListener<Void>() {
                                             @Override
                                             public void onComplete(@NonNull Task<Void> task) {
 
