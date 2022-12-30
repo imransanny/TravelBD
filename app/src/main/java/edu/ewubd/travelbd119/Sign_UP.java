@@ -62,7 +62,7 @@ public class Sign_UP extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
 
-        SharedPreferences sp = this.getSharedPreferences("Store_Data_SharedPref", MODE_PRIVATE);
+       // SharedPreferences sp = this.getSharedPreferences("Store_Data_SharedPref", MODE_PRIVATE);
 
 
         nid1 = findViewById(R.id.nid_text);
@@ -86,7 +86,7 @@ public class Sign_UP extends AppCompatActivity {
        // System.out.println("Sign up=" + Check_User + "==");
 
         SharedPreferences users = this.getSharedPreferences("TRAVELER", MODE_PRIVATE);
-        String Check_User = sp.getString("TRAVELER", "");
+        String Check_User = users.getString("TRAVELER", "");
 
 
 

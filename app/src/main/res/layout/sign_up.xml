@@ -44,9 +44,9 @@
                    android:id="@+id/photo_sign_up_profile"
                    android:layout_width="match_parent"
                    android:layout_height="wrap_content"
+
                    android:layout_centerInParent="true"
                    android:layout_marginLeft="80dp"
-
                    android:layout_marginRight="80dp"
                    android:gravity="center"
                    android:text="Photo"
@@ -130,6 +130,7 @@
                     android:layout_marginLeft="20dp"/>
 
                 <EditText
+                    android:visibility="gone"
                     android:id="@+id/nid_signupp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
