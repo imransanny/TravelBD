@@ -81,9 +81,14 @@ public class Sign_UP extends AppCompatActivity {
         photos = findViewById(R.id.profilePic);
 
 
-       Bundle extras = getIntent().getExtras();
-        String Check_User = extras.getString("TRAVELER1").trim();
-        System.out.println("Sign up=" + Check_User + "==");
+      // Bundle extras = getIntent().getExtras();
+       // String Check_User = extras.getString("TRAVELER1").trim();
+       // System.out.println("Sign up=" + Check_User + "==");
+
+        SharedPreferences users = this.getSharedPreferences("TRAVELER", MODE_PRIVATE);
+        String Check_User = sp.getString("TRAVELER", "");
+
+
 
         if (Check_User.equals("TRA")) {
             nid.setVisibility(View.GONE);

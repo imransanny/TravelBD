@@ -184,10 +184,10 @@ public class MainActivity extends AppCompatActivity {
         KEY_VALUE_Database db = new KEY_VALUE_Database(this);
         System.out.println("test1");
         Cursor rows = db.execute("SELECT * FROM key_value_info_profile");
+
         System.out.println("test2");
         if(rows.getCount() != 0){
         while (rows.moveToNext()) {
-
 
              keyy = rows.getString(0);
             System.out.println("main key"+keyy);
@@ -216,7 +216,24 @@ public class MainActivity extends AppCompatActivity {
                     //======================================SQL Lite Checking End
                     clear=2;
 break;
-            } }else{
+            }else{
+                    if(rows.moveToLast()){
+                     String lastkey = rows.getString(0);
+                        System.out.println("last key"+lastkey);
+                        if (keyy.equals(lastkey)){
+                            FIRE();
+                        }else{
+                            break;
+                        }
+
+
+                    }
+                    System.out.println("Row has been 0");
+
+
+
+                }
+            }else{
                 System.out.println("length = "+fieldValues.length);
             }
 
@@ -224,9 +241,15 @@ break;
             if (clear==2){
                 break;
             }
-        }db.close();  }else{
+        }
+        db.close();
 
-            //Firebase Login===============================================
+        }else if(rows.getCount() ==0){
+            System.out.println("Row has been null");
+            FIRE();
+        }
+
+      /*      //Firebase Login===============================================
             System.out.println("Firebase login");
             mAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                 @Override
@@ -251,10 +274,7 @@ break;
                 }
             });
             //Firebase Login===============================================END
-
-        }
-
-
+*/
 
         progressBar.setVisibility(View.GONE);
 
@@ -262,15 +282,47 @@ break;
 
     }
 
+    private void FIRE() {
+        String emaill = username.getText().toString().trim();
+        String passwordd = pass.getText().toString().trim();
+
+        System.out.println("HEre firebase login");
+        //Firebase Login===============================================
+        System.out.println("Firebase login");
+        mAuth.signInWithEmailAndPassword(emaill,passwordd).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+
+                if(task.isSuccessful()){
+
+
+                    //redirect to user profile
+                    startActivity(new Intent(MainActivity.this,Home.class));
+                    //  String root = String.valueOf(databaseReference.child(email).getRoot());
+                    //  System.out.println("PRint Roote = "+root);
+                    progressBar.setVisibility(View.GONE);
+
+
+                }else{
+                    Toast.makeText(MainActivity.this, " Failed to login!Please check your credentials", Toast.LENGTH_LONG).show();
+                    progressBar.setVisibility(View.GONE);
+                }
+
+
+            }
+        });
+        //Firebase Login===============================================END
+    }
+
 
     private void SIGNUP() {
 
         progressBar.setVisibility(View.VISIBLE);
 
-        Bundle extras = getIntent().getExtras();
-        String TRAVELER_USER = extras.getString("TRAVELER").trim();
+       // Bundle extras = getIntent().getExtras();
+       // String TRAVELER_USER = extras.getString("TRAVELER").trim();
         Intent i = new Intent(MainActivity.this, Sign_UP.class);
-        i.putExtra("TRAVELER1", TRAVELER_USER);
+       // i.putExtra("TRAVELER1", TRAVELER_USER);
         startActivity(i);
         progressBar.setVisibility(View.GONE);
 

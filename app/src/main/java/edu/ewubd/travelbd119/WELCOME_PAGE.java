@@ -70,14 +70,25 @@ public class WELCOME_PAGE extends AppCompatActivity  {
 
     private void traveler() {
         Intent i = new Intent(WELCOME_PAGE.this, MainActivity.class);
-        i.putExtra("TRAVELER","TRA");
+        //i.putExtra("TRAVELER","TRA");
+
+        SharedPreferences users= this.getSharedPreferences("TRAVELER", MODE_PRIVATE);
+        // sppp.edit().clear().commit();
+        SharedPreferences.Editor editoruser = users.edit();
+        editoruser.putString("TRAVELER", "TRA");
+        editoruser.apply();
+
         startActivity(i);
         finish();
     }
     private void manager() {
         Intent i = new Intent(WELCOME_PAGE.this, MainActivity.class);
-        i.putExtra("TRAVELER","MAN");
-
+       // i.putExtra("TRAVELER","MAN");
+        SharedPreferences users= this.getSharedPreferences("TRAVELER", MODE_PRIVATE);
+        // sppp.edit().clear().commit();
+        SharedPreferences.Editor editoruser = users.edit();
+        editoruser.putString("TRAVELER", "MAN");
+        editoruser.apply();
         startActivity(i);
         finish();
     }
