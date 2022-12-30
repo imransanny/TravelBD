@@ -46,6 +46,9 @@ DatabaseReference databaseReference;
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.home);
+
+
+
             mAuth = FirebaseAuth.getInstance();
 
             place = findViewById(R.id.place_text_id);

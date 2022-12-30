@@ -237,7 +237,7 @@ public class Sign_UP extends AppCompatActivity {
                                                     progressBar.setVisibility(View.GONE);
                                                 }else{
                                                     //if store not sucessfulll redirect to login page
-                                                    Toast.makeText(Sign_UP.this, "Falied to register!# Try again", Toast.LENGTH_LONG).show();
+                                                    Toast.makeText(Sign_UP.this, "This email address already register!", Toast.LENGTH_LONG).show();
                                                     Intent i = new Intent(Sign_UP.this, MainActivity.class);
                                                     startActivity(i);
                                                     progressBar.setVisibility(View.GONE);
@@ -248,7 +248,7 @@ public class Sign_UP extends AppCompatActivity {
                                             }
                                         });
 
-                                progressBar.setVisibility(View.GONE);
+
                             }else if(Manager==1){
                                 System.out.println("MAnager success"+Traveler+Manager);
 
@@ -266,7 +266,7 @@ public class Sign_UP extends AppCompatActivity {
                                                     progressBar.setVisibility(View.GONE);
                                                 }else{
                                                     //if store not sucessfulll redirect to login page
-                                                    Toast.makeText(Sign_UP.this, "Falied to register! Try again", Toast.LENGTH_LONG).show();
+                                                    Toast.makeText(Sign_UP.this, "This email address already register!", Toast.LENGTH_LONG).show();
                                                     Intent i = new Intent(Sign_UP.this, MainActivity.class);
                                                     startActivity(i);
                                                     progressBar.setVisibility(View.GONE);
@@ -279,7 +279,7 @@ public class Sign_UP extends AppCompatActivity {
                             }
                         }else{
                             System.out.println("aDIMIN17");
-                            Toast.makeText(Sign_UP.this,"Failed to register!!! Try again", Toast.LENGTH_LONG).show();
+                            Toast.makeText(Sign_UP.this,"This email address already register!", Toast.LENGTH_LONG).show();
                             progressBar.setVisibility(View.GONE);
                         }
                     }
