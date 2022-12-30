@@ -1,6 +1,8 @@
 package edu.ewubd.travelbd119;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -12,9 +14,9 @@ import com.squareup.picasso.Picasso;
 
 public class Hotel_Details_Information extends AppCompatActivity {
 
-    ImageView cover_image;
+    ImageView cover_image,contact_img;
     TextView coverTitle, place_description, price, star,location, contact;
-
+    String place_contact;
 
 
     @SuppressLint("MissingInflatedId")
@@ -40,7 +42,7 @@ public class Hotel_Details_Information extends AppCompatActivity {
 
         String place_Price = extras.getString("PLACE_PRICE").trim();
 
-        String place_contact = extras.getString("PLACE_CONTACT").trim();
+       place_contact = extras.getString("PLACE_CONTACT").trim();
 
 
 
@@ -54,7 +56,8 @@ public class Hotel_Details_Information extends AppCompatActivity {
         star = findViewById(R.id.Tv_Star);
         location = findViewById(R.id.Tv_loacation);
         price = findViewById(R.id.Tv_price);
-        contact = findViewById(R.id.Tv_contact);
+        contact = findViewById(R.id.Tv_contactnumber_id);
+        contact_img = findViewById(R.id.call_btn_id);
 
 
         coverTitle.setText(place_name);
@@ -72,5 +75,19 @@ public class Hotel_Details_Information extends AppCompatActivity {
                 .into(cover_image);
 
 
+
+
+
+
+
+        contact.setOnClickListener(v-> contact_manager());
+        contact_img.setOnClickListener(v-> contact_manager());
+
+    }
+
+    private void contact_manager() {
+        Intent i = new Intent(Intent.ACTION_DIAL);
+        i.setData(Uri.parse("tel:"+place_contact));
+        startActivity(i);
     }
 }
