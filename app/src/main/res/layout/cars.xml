@@ -24,7 +24,7 @@
             android:layout_marginEnd="4dp"
             android:drawableLeft="@drawable/ic_location"
             android:ems="10"
-            android:hint="Pick up "
+            android:hint="Pick up place"
             android:inputType="textMultiLine"
             android:minHeight="48dp"
             android:visibility="visible"
@@ -58,7 +58,7 @@
             android:layout_marginTop="8dp"
             android:drawableLeft="@drawable/ic_location"
             android:ems="10"
-            android:hint="Drop off"
+            android:hint="Drop off place"
             android:inputType="textPersonName"
             android:minHeight="48dp"
             android:visibility="visible"
@@ -87,11 +87,11 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:backgroundTint="#FF9800"
-            android:text="Search for cars"
+            android:text="Select car"
             android:textColor="@color/black"
             app:layout_constraintEnd_toEndOf="@+id/car_dropofftime"
             app:layout_constraintStart_toStartOf="@+id/car_drpoff"
-            app:layout_constraintTop_toBottomOf="@+id/car_dropofftime" />
+            app:layout_constraintTop_toBottomOf="@+id/car_drpoff" />
 
         <ImageView
             android:id="@+id/car_noah"
@@ -108,19 +108,49 @@
         <TextView
             android:id="@+id/detail01"
             android:layout_width="153dp"
-            android:layout_height="86dp"
-            android:layout_margin="4dp"
+            android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:text="Vehicle Type: Toyota Hiace
-                      Passenger Capacity: 10
-                      Luggage: 6 Medium
-                      BDT 3000"
+            android:text="Vehicle Type: Toyota Hiace"
             android:textColor="@color/black"
             android:textSize="12sp"
-            app:layout_constraintBottom_toBottomOf="@+id/car_noah"
             app:layout_constraintEnd_toEndOf="@+id/car_search"
             app:layout_constraintStart_toEndOf="@+id/car_noah"
             app:layout_constraintTop_toTopOf="@+id/car_noah" />
+
+        <TextView
+            android:id="@+id/detail011"
+            android:layout_width="153dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="Passenger Capacity: 10"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="@+id/car_search"
+            app:layout_constraintStart_toEndOf="@+id/car_noah"
+            app:layout_constraintTop_toBottomOf="@id/detail01"  />
+
+        <TextView
+            android:id="@+id/detail012"
+            android:layout_width="153dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="Luggage: 6 Medium"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            app:layout_constraintTop_toBottomOf="@+id/detail011"
+            app:layout_constraintEnd_toEndOf="@+id/car_search"
+            app:layout_constraintStart_toEndOf="@+id/car_noah" />
+        <TextView
+            android:id="@+id/detail013"
+            android:layout_width="153dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="BDT 3000"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="@+id/car_search"
+            app:layout_constraintStart_toEndOf="@+id/car_noah"
+            app:layout_constraintTop_toBottomOf="@id/detail012"  />
 
         <ImageView
             android:id="@+id/car_02"
@@ -137,19 +167,48 @@
         <TextView
             android:id="@+id/detail02"
             android:layout_width="153dp"
-            android:layout_height="86dp"
-            android:layout_margin="4dp"
+            android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:text="Vehicle Type: Toyota Axio
-                      Passenger Capacity: 4
-                      Luggage: 2 Medium
-                      BDT 4000"
+            android:text="Vehicle Type: Toyota Axio"
             android:textColor="@color/black"
             android:textSize="12sp"
-            app:layout_constraintBottom_toBottomOf="@+id/car_02"
             app:layout_constraintEnd_toEndOf="@+id/detail01"
             app:layout_constraintStart_toEndOf="@+id/car_02"
             app:layout_constraintTop_toTopOf="@+id/car_02" />
+        <TextView
+            android:id="@+id/detail021"
+            android:layout_width="153dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="Passenger Capacity: 4"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="@+id/detail01"
+            app:layout_constraintStart_toEndOf="@+id/car_02"
+            app:layout_constraintTop_toBottomOf="@id/detail02" />
+
+        <TextView
+            android:id="@+id/detail022"
+            android:layout_width="153dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="Luggage: 2 Medium"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="@+id/detail01"
+            app:layout_constraintStart_toEndOf="@+id/car_02"
+            app:layout_constraintTop_toBottomOf="@+id/detail021" />
+        <TextView
+            android:id="@+id/detail023"
+            android:layout_width="153dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="BDT 4000"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="@+id/detail01"
+            app:layout_constraintStart_toEndOf="@+id/car_02"
+            app:layout_constraintTop_toBottomOf="@id/detail022"  />
 
         <ImageView
             android:id="@+id/car_03"
@@ -166,18 +225,43 @@
         <TextView
             android:id="@+id/detail03"
             android:layout_width="153dp"
-            android:layout_height="86dp"
-            android:layout_margin="4dp"
-            android:text="Vehicle Type: Toyota Axio(AC)
-                      Passenger Capacity: 4
-                      Luggage: 2 Medium
-                      BDT 5000"
+            android:layout_height="wrap_content"
+            android:text="Vehicle Type: Toyota Axio(AC)"
             android:textColor="@color/black"
             android:textSize="12sp"
-            app:layout_constraintBottom_toBottomOf="@+id/car_03"
             app:layout_constraintEnd_toEndOf="@+id/detail02"
             app:layout_constraintStart_toStartOf="@+id/detail02"
             app:layout_constraintTop_toTopOf="@+id/car_03" />
+        <TextView
+            android:id="@+id/detail031"
+            android:layout_width="153dp"
+            android:layout_height="wrap_content"
+            android:text="Passenger Capacity: 4"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="@+id/detail02"
+            app:layout_constraintStart_toStartOf="@+id/detail02"
+            app:layout_constraintTop_toBottomOf="@id/detail03" />
+        <TextView
+            android:id="@+id/detail032"
+            android:layout_width="153dp"
+            android:layout_height="wrap_content"
+            android:text="Luggage: 2 Medium"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="@+id/detail02"
+            app:layout_constraintStart_toStartOf="@+id/detail02"
+            app:layout_constraintTop_toBottomOf="@id/detail031" />
+        <TextView
+            android:id="@+id/detail033"
+            android:layout_width="153dp"
+            android:layout_height="wrap_content"
+            android:text="BDT 5000"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="@+id/detail02"
+            app:layout_constraintStart_toStartOf="@+id/detail02"
+            app:layout_constraintTop_toBottomOf="@id/detail032" />
 
         <ImageView
             android:id="@+id/car_04"
@@ -194,18 +278,43 @@
         <TextView
             android:id="@+id/detail04"
             android:layout_width="153dp"
-            android:layout_height="86dp"
-            android:layout_margin="4dp"
-            android:text="Vehicle Type: Toyota Axio(AC)
-                      Passenger Capacity: 4
-                      Luggage: 2 Medium
-                      BDT 3000"
+            android:layout_height="wrap_content"
+            android:text="Vehicle Type: Toyota Axio(AC)"
             android:textColor="@color/black"
             android:textSize="12sp"
-            app:layout_constraintBottom_toBottomOf="@+id/car_04"
             app:layout_constraintEnd_toEndOf="@+id/detail03"
             app:layout_constraintStart_toStartOf="@+id/detail03"
             app:layout_constraintTop_toTopOf="@+id/car_04" />
+        <TextView
+            android:id="@+id/detail041"
+            android:layout_width="153dp"
+            android:layout_height="wrap_content"
+            android:text="Passenger Capacity: 4"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="@+id/detail03"
+            app:layout_constraintStart_toStartOf="@+id/detail03"
+            app:layout_constraintTop_toBottomOf="@id/detail04" />
+        <TextView
+            android:id="@+id/detail042"
+            android:layout_width="153dp"
+            android:layout_height="wrap_content"
+            android:text="Luggage: 2 Medium"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="@+id/detail03"
+            app:layout_constraintStart_toStartOf="@+id/detail03"
+            app:layout_constraintTop_toBottomOf="@id/detail041" />
+        <TextView
+            android:id="@+id/detail043"
+            android:layout_width="153dp"
+            android:layout_height="wrap_content"
+            android:text="BDT 3000"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="@+id/detail03"
+            app:layout_constraintStart_toStartOf="@+id/detail03"
+            app:layout_constraintTop_toBottomOf="@id/detail042" />
 
         <ImageView
             android:id="@+id/car_05"
@@ -222,18 +331,47 @@
         <TextView
             android:id="@+id/detail05"
             android:layout_width="153dp"
-            android:layout_height="86dp"
+            android:layout_height="wrap_content"
             android:layout_margin="4dp"
-            android:text="Vehicle Type: Toyota HIACE
-                      Passenger Capacity: 10
-                      Luggage: 6-7 Medium
-                      BDT 4500"
+            android:text="Vehicle Type: Toyota HIACE"
             android:textColor="@color/black"
             android:textSize="12sp"
-            app:layout_constraintBottom_toBottomOf="@+id/car_05"
             app:layout_constraintEnd_toEndOf="@+id/detail04"
             app:layout_constraintStart_toStartOf="@+id/detail04"
             app:layout_constraintTop_toTopOf="@+id/car_05" />
+        <TextView
+            android:id="@+id/detail051"
+            android:layout_width="153dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:text="Passenger Capacity: 10"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="@+id/detail04"
+            app:layout_constraintStart_toStartOf="@+id/detail04"
+            app:layout_constraintTop_toBottomOf="@id/detail05" />
+        <TextView
+            android:id="@+id/detail052"
+            android:layout_width="153dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:text="Luggage: 6-7 Medium"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="@+id/detail04"
+            app:layout_constraintStart_toStartOf="@+id/detail04"
+            app:layout_constraintTop_toBottomOf="@id/detail051" />
+        <TextView
+            android:id="@+id/detail053"
+            android:layout_width="153dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:text="BDT 4500"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="@+id/detail04"
+            app:layout_constraintStart_toStartOf="@+id/detail04"
+            app:layout_constraintTop_toBottomOf="@id/detail052" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -39,21 +39,16 @@ public class Bike extends AppCompatActivity {
         slot2 = findViewById(R.id.btn_bikeslot2);
         slot3 = findViewById(R.id.btn_bikeslot3);
 
-        slot1.setOnClickListener(v -> select_slot_1());
-        slot2.setOnClickListener(v -> select_slot_2());
-        slot3.setOnClickListener(v -> select_slot_3());
+      //  slot1.setOnClickListener(v -> select_slot_1());
+       // slot2.setOnClickListener(v -> select_slot_2());
+        // slot3.setOnClickListener(v -> select_slot_3());
+
+        available_bike.setOnClickListener(v -> check_bike());
     }
 
-    private void select_slot_1() {
-        Intent i = new Intent(Bike.this, Home.class);
+    private void check_bike() {
+        Intent i = new Intent(Bike.this, bike_availability.class);
         startActivity(i);
     }
-    private void select_slot_2() {
-        Intent i = new Intent(Bike.this, Home.class);
-        startActivity(i);
-    }
-    private void select_slot_3() {
-        Intent i = new Intent(Bike.this, Home.class);
-        startActivity(i);
-    }
+
 }

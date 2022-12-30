@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
-    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -10,67 +11,65 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.TravelBD">
-
+        <activity
+            android:name=".bike_availability"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
         <activity
             android:name=".Airline"
-            android:exported="true"/>
+            android:exported="true" />
         <activity
             android:name=".Best_visit_place_suggestion"
-            android:exported="true"/>
+            android:exported="true" />
         <activity
             android:name=".Bike"
-            android:exported="true"/>
+            android:exported="true" />
         <activity
             android:name=".Cars"
-            android:exported="true"/>
-
+            android:exported="true" />
         <activity
             android:name=".Discount"
-            android:exported="true"/>
+            android:exported="true" />
         <activity
             android:name=".Home"
-            android:exported="true"/>
+            android:exported="true" />
         <activity
             android:name=".Hotels"
-            android:exported="true"/>
-
+            android:exported="true" />
         <activity
             android:name=".Profile"
-            android:exported="true"/>
-
+            android:exported="true" />
         <activity
             android:name=".MainActivity"
-            android:exported="true"/>
-
+            android:exported="true" />
         <activity
             android:name=".All_Place_Entry"
-            android:exported="true"/>
-
+            android:exported="true" />
         <activity
             android:name=".Display_Place_Image"
-            android:exported="true"/>
+            android:exported="true" />
         <activity
             android:name=".Place_Dtails_Information"
-            android:exported="true"/>
+            android:exported="true" />
         <activity
             android:name=".Display_HOTEL_Image"
-            android:exported="true"/>
-  <activity
+            android:exported="true" />
+        <activity
             android:name=".Rview_test"
-            android:exported="true"/>
-  <activity
+            android:exported="true" />
+        <activity
             android:name=".Hotel_Details_Information"
-            android:exported="true"/>
-
-
+            android:exported="true" />
         <activity
             android:name=".Sign_UP"
-            android:exported="true"/>
+            android:exported="true" />
         <activity
             android:name=".WELCOME_PAGE"
             android:exported="true"
             tools:ignore="DuplicateActivity">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

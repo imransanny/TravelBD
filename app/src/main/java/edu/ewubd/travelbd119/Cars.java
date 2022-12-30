@@ -44,14 +44,14 @@ public class Cars extends AppCompatActivity {
         car04 = findViewById(R.id.car_04);
         car05 = findViewById(R.id.car_05);
 
-        car01.setOnClickListener(v -> select_car_01());
+       /* car01.setOnClickListener(v -> select_car_01());
         car02.setOnClickListener(v -> select_car_02());
         car03.setOnClickListener(v -> select_car_03());
         car04.setOnClickListener(v -> select_car_04());
-        car05.setOnClickListener(v -> select_car_05());
+        car05.setOnClickListener(v -> select_car_05());  */
 
     }
-
+/*
     private void select_car_01() {
         Intent i = new Intent(Cars.this, Home.class);
         startActivity(i);
@@ -71,6 +71,6 @@ public class Cars extends AppCompatActivity {
     private void select_car_05() {
         Intent i = new Intent(Cars.this, Home.class);
         startActivity(i);
-    }
+    }  */
 
 }
