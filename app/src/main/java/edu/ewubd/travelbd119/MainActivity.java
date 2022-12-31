@@ -12,6 +12,7 @@ import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Base64;
 import android.util.Patterns;
 import android.view.MotionEvent;
@@ -28,13 +29,14 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
-
+    Handler mHandler;
     TextView signup, login, forgetpass;
     ProgressBar progressBar;
     EditText username, pass;
@@ -46,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
     String keyy;
     int clear = 1;
     String lastrow, firstrow;
+    String uid;
 
 
     @SuppressLint("MissingInflatedId")
@@ -59,6 +62,7 @@ public class MainActivity extends AppCompatActivity {
 
         username = findViewById(R.id.username_main);
         login = findViewById(R.id.login_main);
+        mHandler=new Handler();
 
 
         //check user
@@ -185,7 +189,12 @@ public class MainActivity extends AppCompatActivity {
 
 
         if (rows.getCount() != 0) {
+
+
+
             while (rows.moveToNext()) {
+
+
 
                 keyy = rows.getString(0);
                 System.out.println("main key" + keyy);
@@ -215,6 +224,7 @@ public class MainActivity extends AppCompatActivity {
                         startActivity(i);
                         //======================================SQL Lite Checking End
                         clear = 2;
+                      FIRE();
                         break;
                     } else {
                         System.out.println("vvalue 8");
@@ -226,7 +236,7 @@ public class MainActivity extends AppCompatActivity {
                         if (lastrow.equals(keyy)) {
                             System.out.println("last key succes" + lastrow);
                             //  if (keyy.equals(lastkey)){
-                            FIRE();
+                            FIREforUID();
                         } else {
                             System.out.println("vvalue 9");
                           //  break;
@@ -247,8 +257,20 @@ public class MainActivity extends AppCompatActivity {
                 if (clear == 2) {
                     break;
                 }
+
+
+
+
+
+
+
+
             }
             db.close();
+
+
+
+
 
         } else if (rows.getCount() == 0) {
             System.out.println("Row has been null");
@@ -287,6 +309,74 @@ public class MainActivity extends AppCompatActivity {
 */
 
     }
+
+    private void FIREforUID() {
+
+        String emaill = username.getText().toString().trim();
+        String passwordd = pass.getText().toString().trim();
+
+        System.out.println("HEre firebase login");
+        //Firebase Login===============================================
+        System.out.println("Firebase login");
+        mAuth.signInWithEmailAndPassword(emaill, passwordd).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+
+                if (task.isSuccessful()) {
+
+
+                  //  startActivity(new Intent(MainActivity.this, Home.class));
+
+                  //  progressBar.setVisibility(View.GONE);
+
+                    //get UID
+                    //check current user========================================
+                    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                    if (user != null) {
+                        // User is signed in
+                        System.out.println("User is signed in");
+                        String name = user.getDisplayName();
+                        String email = user.getEmail();
+                        uid = user.getUid();
+                        String phon = user.getPhoneNumber();
+                        System.out.println("name"+name);
+                        System.out.println("email = +"+email);
+                        System.out.println("uid"+uid);
+                        System.out.println("Phone"+phon);
+
+
+                    } else {
+                        System.out.println("not sign in");
+                    }
+
+                    //check current user========================================END
+
+
+
+
+
+
+
+                } else {
+                   // Toast.makeText(MainActivity.this, " Failed to login!Please check your credentials", Toast.LENGTH_LONG).show();
+                   // progressBar.setVisibility(View.GONE);
+                }
+
+
+            }
+        });
+        //Firebase Login===============================================END
+
+
+        //save UID share pref
+        SharedPreferences user_i = this.getSharedPreferences("USER_UID", MODE_PRIVATE);
+        SharedPreferences.Editor e = user_i.edit();
+
+        e.putString("Share_pref_UID", uid);
+        e.apply();
+    }
+
+
 
     private void FIRE() {
         String emaill = username.getText().toString().trim();

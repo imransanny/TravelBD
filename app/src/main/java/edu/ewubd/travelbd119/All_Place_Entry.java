@@ -11,6 +11,7 @@ import android.content.ContentResolver;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.webkit.MimeTypeMap;
 import android.widget.Button;
@@ -41,8 +42,9 @@ public class All_Place_Entry extends AppCompatActivity implements View.OnClickLi
     private Uri imageUri;
     DatabaseReference databaseReference;
     StorageReference storageReference;
-
+    Handler mHandler;
     StorageTask uploadTask;
+    Uri downloadUri;
 
     private static  final int IMAGE_REQUEST = 1; //jokhon image select korbo request 1
 
@@ -52,7 +54,7 @@ public class All_Place_Entry extends AppCompatActivity implements View.OnClickLi
         setContentView(R.layout.all_place_entry);
 // Create a Cloud Storage reference from the app
         //  StorageReference storageRef = storage.getReference();
-
+        mHandler=new Handler();
         databaseReference = FirebaseDatabase.getInstance().getReference("Upload_Place_Image");
         storageReference = FirebaseStorage.getInstance().getReference("Upload_Place_Image");
 
@@ -130,12 +132,27 @@ public class All_Place_Entry extends AppCompatActivity implements View.OnClickLi
                         //jokhon sucessfull upload hobe
                         Toast.makeText(getApplicationContext(),"Image is store sucessfully", Toast.LENGTH_LONG).show();
 
-                        Task<Uri> urlTask = taskSnapshot.getStorage()
+                        new Thread(new Runnable() {
+                            @SuppressLint("SuspiciousIndentation")
+                            @Override
+                            public void run() {
+
+
+
+                                Task<Uri> urlTask = taskSnapshot.getStorage()
                                 .getDownloadUrl();
                         while (!urlTask.isSuccessful());
-                        Uri downloadUri = urlTask.getResult();
+                         downloadUri = urlTask.getResult();
 
+                                mHandler.post(new Runnable() {
+                                    @Override
+                                    public void run() {
 
+                                    }
+                                });
+                            }
+                        }).start();
+//======thread
 
                         //store hole tar ekta link database a store kore rakhte chaile
                         Upload upload = new Upload(imageName,downloadUri.toString(),imagedes);

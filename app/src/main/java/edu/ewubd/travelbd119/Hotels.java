@@ -12,6 +12,7 @@ package edu.ewubd.travelbd119;
         import android.content.Intent;
         import android.net.Uri;
         import android.os.Bundle;
+        import android.os.Handler;
         import android.view.View;
         import android.webkit.MimeTypeMap;
         import android.widget.Button;
@@ -40,9 +41,10 @@ public class Hotels extends AppCompatActivity implements View.OnClickListener {
     private EditText imageNameEditText,imagedesEdittext,imageStar_edittex,image_Location_edittex,image_price_Editt,image_contact;
     private ProgressBar progressBar;
     private Uri imageUri;
-
+    Handler mHandler;
     DatabaseReference databaseReference;
     StorageReference storageReference;
+    Uri downloadUri;
 
     StorageTask uploadTask;
 
@@ -53,6 +55,7 @@ public class Hotels extends AppCompatActivity implements View.OnClickListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.hotel_entry_page);
+        mHandler=new Handler();
 // Create a Cloud Storage reference from the app
         //  StorageReference storageRef = storage.getReference();
 
@@ -160,12 +163,25 @@ public class Hotels extends AppCompatActivity implements View.OnClickListener {
                         //jokhon sucessfull upload hobe
                         Toast.makeText(getApplicationContext(),"Image is store sucessfully", Toast.LENGTH_LONG).show();
 
-                        Task<Uri> urlTask = taskSnapshot.getStorage()
+//Thread====
+                        new Thread(new Runnable() {
+                            @Override
+                            public void run() {
+
+                                Task<Uri> urlTask = taskSnapshot.getStorage()
                                 .getDownloadUrl();
                         while (!urlTask.isSuccessful());
-                        Uri downloadUri = urlTask.getResult();
+                         downloadUri = urlTask.getResult();//Uri = downloaduri
 
+                                mHandler.post(new Runnable() {
+                                    @Override
+                                    public void run() {
 
+                                    }
+                                });
+                            }
+                        }).start();
+//======thread
 
                         //store hole tar ekta link database a store kore rakhte chaile
                         Hotels_Upload upload = new Hotels_Upload(imageName,downloadUri.toString(),imagedes, imageStar,imageLocation,imagePrice, imageContact);

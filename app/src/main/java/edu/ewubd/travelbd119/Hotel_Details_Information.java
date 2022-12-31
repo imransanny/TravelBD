@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -17,6 +18,8 @@ public class Hotel_Details_Information extends AppCompatActivity {
     ImageView cover_image,contact_img;
     TextView coverTitle, place_description, price, star,location, contact;
     String place_contact;
+    Button booking;
+    String place_name;
 
 
     @SuppressLint("MissingInflatedId")
@@ -30,7 +33,7 @@ public class Hotel_Details_Information extends AppCompatActivity {
         String place_image = extras.getString("PLACE_IMAGE").trim();
         System.out.println("place_image" + place_image + "==");
 
-        String place_name = extras.getString("IMAGE_NAME").trim();
+        place_name = extras.getString("IMAGE_NAME").trim();
         System.out.println("place_name" + place_name + "==");
 
         String place_des = extras.getString("IMAGE_DESCRIPTION").trim();
@@ -58,6 +61,8 @@ public class Hotel_Details_Information extends AppCompatActivity {
         price = findViewById(R.id.Tv_price);
         contact = findViewById(R.id.Tv_contactnumber_id);
         contact_img = findViewById(R.id.call_btn_id);
+        booking = findViewById(R.id.Tv_Booking);
+        booking.setOnClickListener(v->hotel_booking());
 
 
         coverTitle.setText(place_name);
@@ -83,6 +88,12 @@ public class Hotel_Details_Information extends AppCompatActivity {
         contact.setOnClickListener(v-> contact_manager());
         contact_img.setOnClickListener(v-> contact_manager());
 
+    }
+
+    private void hotel_booking() {
+Intent i = new Intent(Hotel_Details_Information.this, Hotel_Booking.class);
+i.putExtra("HOTEL_NAME",place_name);
+startActivity(i);
     }
 
     private void contact_manager() {

@@ -35,7 +35,7 @@ import java.util.List;
 public class Home extends AppCompatActivity {
 
     TextView place, hotel, air, car, bike, review;
-    ImageView discout, place_logo, Hotel_logo, Air_logo, Car_logo, Bike_logo, Review_logo, profile,ic_menu;
+    ImageView discout, place_logo, Hotel_logo, Air_logo, Car_logo, Bike_logo, Review_logo, profile,ic_menu,notification;
     RecyclerView recyclerView;
     private List<Upload> uploadList;
     FirebaseAuth mAuth;
@@ -73,7 +73,9 @@ DatabaseReference databaseReference;
             review = findViewById(R.id.review_text_id);
             Review_logo = findViewById(R.id.review_image_id);
             profile = findViewById(R.id.profile_home_id);
+            notification = findViewById(R.id.notifaction_home_id);
 
+            notification.setOnClickListener(v->notificaiton_msg());
 
             place.setOnClickListener(v->place());
             place_logo.setOnClickListener(v->place());
@@ -122,7 +124,13 @@ DatabaseReference databaseReference;
             });
 //===========================================
         }
-//logout
+
+    private void notificaiton_msg() {
+            Intent i= new Intent( Home.this, Display_Booking_HOTEL.class);
+            startActivity(i);
+    }
+
+    //logout
     private void ic_menu() {
 FirebaseAuth.getInstance().signOut();
 SharedPreferences sp = this.getSharedPreferences("Remember_login_Sharedpref", MODE_PRIVATE);
@@ -143,8 +151,9 @@ startActivity(i);
 
     //================================funciton for home page
     private void review() {
-        //Intent i = new Intent(Home.this, Best_visit_place_suggestion.class);
-        Intent i = new Intent(Home.this, Rview_test.class);
+
+      //  Intent i = new Intent(Home.this, Best_visit_place_suggestion.class);
+        Intent i = new Intent(Home.this, Display_Booking_HOTEL.class);
         startActivity(i);
     }
     private void discount() {

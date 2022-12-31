@@ -324,6 +324,7 @@ public class Sign_UP extends AppCompatActivity {
         i.setType("image/*");
         i.setAction(Intent.ACTION_GET_CONTENT);
         startActivityForResult(i,IMAGE_REQUEST);
+        photo_select.setVisibility(View.GONE);
 
     }
 

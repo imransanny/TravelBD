@@ -28,6 +28,12 @@
             android:name=".Bike"
             android:exported="true" />
         <activity
+            android:name=".Hotel_Booking"
+            android:exported="true" />
+        <activity
+            android:name=".Display_Booking_HOTEL"
+            android:exported="true" />
+        <activity
             android:name=".Cars"
             android:exported="true" />
         <activity

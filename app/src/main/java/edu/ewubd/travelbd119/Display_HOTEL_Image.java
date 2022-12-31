@@ -9,6 +9,7 @@ package edu.ewubd.travelbd119;
 
         import android.annotation.SuppressLint;
         import android.os.Bundle;
+        import android.os.Handler;
         import android.view.View;
         import android.widget.ProgressBar;
         import android.widget.Toast;
@@ -29,6 +30,7 @@ public class Display_HOTEL_Image extends AppCompatActivity {
     private List<Hotels_Upload> uploadList_hotels;
     private ProgressBar progressBar;
     DatabaseReference databaseReference;
+    Handler mHandler;
 
 
 
@@ -38,7 +40,7 @@ public class Display_HOTEL_Image extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.display_place_image);
 
-
+        mHandler=new Handler();
         recyclerView = findViewById(R.id.recyclerview_id);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -59,8 +61,11 @@ public class Display_HOTEL_Image extends AppCompatActivity {
 
 
                 for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
+
                     Hotels_Upload upload = dataSnapshot1.getValue(Hotels_Upload.class);
                     uploadList_hotels.add(upload);
+
+
                 }
 
 

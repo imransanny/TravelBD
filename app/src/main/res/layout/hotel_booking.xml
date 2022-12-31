@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#FCFDFF">
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:layout_weight="0.5"
+    android:orientation="vertical">
+    <TextView
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+       android:textSize="20sp"
+        android:text="name"/>
+    <EditText
+        android:id="@+id/name_edit_i"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_weight="1"
+        android:textSize="20sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter your name"/>
+
+    <TextView
+        android:textSize="20sp"
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="phone"/>
+
+    <EditText
+        android:inputType="phone"
+        android:id="@+id/phone_edit_i"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_weight="1"
+        android:hint="Enter your phone"
+        android:textSize="20sp" />
+
+    <TextView
+        android:textSize="20sp"
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="email"/>
+    <EditText
+        android:inputType="textEmailAddress"
+        android:textSize="20sp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/email_edit_i"
+        android:hint="Enter your email"/>
+
+
+    <TextView
+        android:textSize="20sp"
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="address"/>
+    <EditText
+        android:textSize="20sp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter your address"
+        android:id="@+id/address_edit_i"/>
+
+    <TextView
+        android:id="@+id/date_text_id"
+        android:textSize="20sp"
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Date"/>
+    <EditText
+        android:id="@+id/date_edit_id"
+        android:textSize="20sp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter your date"
+        android:focusableInTouchMode="false"
+        android:inputType="date"/>
+
+
+</LinearLayout>
+
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        />
+
+
+    <TextView
+        android:id="@+id/Confirm_booking_id"
+        android:layout_gravity="bottom"
+        android:layout_marginBottom="5dp"
+        android:layout_width="match_parent"
+        android:text="Confirm Booking"
+        android:focusableInTouchMode="true"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:textSize="20sp"
+        android:background="#FFA78B"
+        android:layout_height="wrap_content"/>
+
+
+
+</LinearLayout>
