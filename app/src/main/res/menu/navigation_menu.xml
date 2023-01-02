@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="HardcodedText"
+    >
+
+
+<item
+        android:id="@+id/nav_profile"
+        android:title="My Profile"
+    android:icon="@drawable/profile_icon"
+
+
+    />
+
+    <item
+        android:id="@+id/nav_places"
+        android:title="Places"
+        android:icon="@drawable/place_icon"/>
+
+    <item
+        android:id="@+id/nav_hotel"
+        android:title="Hotel"
+        android:icon="@drawable/hotel_icon"/>
+
+    <item
+        android:id="@+id/nav_Air"
+        android:title="Air"
+        android:icon="@drawable/air_icon"/>
+
+    <item
+        android:id="@+id/nav_car"
+        android:title="Car"
+        android:icon="@drawable/car_icon"/>
+
+    <item
+        android:id="@+id/nav_bike"
+        android:title="Bike"
+        android:icon="@drawable/bike_icon"/>
+
+    <item
+        android:id="@+id/nav_review"
+        android:title="Review"
+        android:icon="@drawable/review_icon"/>
+
+    <item
+        android:id="@+id/nav_settings"
+        android:title="Settings"
+        android:icon="@drawable/settigns_icon"/>
+
+    <item
+        android:id="@+id/nav_logout"
+        android:title="Logout"
+        android:icon="@drawable/logout_icon"/>
+</menu>
