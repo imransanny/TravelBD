@@ -75,13 +75,13 @@ public class Display_Booking_HOTEL extends AppCompatActivity {
 
                     list.add(dataSnapshot1.getValue().toString());
 
-                    System.out.println("-"+list.size());
 
                 }
+                System.out.println("-"+list);
 
 
                 for(int i=0 ; i<list.size();i++){
-                    // System.out.println(list.get(i));
+                     System.out.println(list.get(i));
                     String hotel_name = list.get(3);
                     String  name = list.get(4);
                     String phone = list.get(5);
@@ -91,6 +91,7 @@ public class Display_Booking_HOTEL extends AppCompatActivity {
                     System.out.println(name);
                     BOOKING upload = new BOOKING(hotel_name,name,phone,email,address,date);
                     events.add(upload);
+                    System.out.println("Event added");
                 }
 
 
