@@ -1,4 +1,14 @@
 <resources>
-    <string name="app_name">Travel BD</string>
 
+    <string name="app_name" >TravelBD</string>
+    <!-- to toggle the open close button of the navigation drawer -->
+    <string name="nav_open">Open</string>
+    <string name="nav_close">Close</string>
+    
+    <style name="TextAppearance.AppCompat.Widget.ActionBar.Title" parent= "@android:style/TextAppearance">
+            <item name = "android:textStyle">italic </item>
+            <item name = "android:textSize">20sp</item>
+            <item name = "android:textColor">@color/black</item>
+
+    </style>
 </resources>

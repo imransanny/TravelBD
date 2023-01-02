@@ -8,7 +8,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -17,36 +16,27 @@ import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-
-import java.util.ArrayList;
-import java.util.List;
 
 
 public class Home extends AppCompatActivity {
 
     TextView place, hotel, air, car, bike, review;
-    ImageView discout, place_logo, Hotel_logo, Air_logo, Car_logo, Bike_logo, Review_logo, profile,ic_menu,notification;
+    ImageView discout, place_logo, Hotel_logo, Air_logo, Car_logo, Bike_logo, Review_logo, profile,ic_menu;
     RecyclerView recyclerView;
-    private List<Upload> uploadList;
     FirebaseAuth mAuth;
 DatabaseReference databaseReference;
-    String Current_USER_1;
-    private Hotel_img_Adapter myAdapter;
-    private List<Hotels_Upload> uploadList_hotels;
-    private ProgressBar progressBar;
 
-
-
+        // Side NAvigation
+        public DrawerLayout drawerLayout;
+    public ActionBarDrawerToggle actionBarDrawerToggle;
 
 
 
@@ -55,9 +45,9 @@ DatabaseReference databaseReference;
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.home);
-
-         //   recyclerView.setNestedScrollingEnabled(false);
             mAuth = FirebaseAuth.getInstance();
+
+            databaseReference = FirebaseDatabase.getInstance().getReference("Upload_Place_Image");
 
             place = findViewById(R.id.place_text_id);
             hotel = findViewById(R.id.hotel_text_id);
@@ -73,9 +63,7 @@ DatabaseReference databaseReference;
             review = findViewById(R.id.review_text_id);
             Review_logo = findViewById(R.id.review_image_id);
             profile = findViewById(R.id.profile_home_id);
-            notification = findViewById(R.id.notifaction_home_id);
 
-            notification.setOnClickListener(v->notificaiton_msg());
 
             place.setOnClickListener(v->place());
             place_logo.setOnClickListener(v->place());
@@ -95,53 +83,18 @@ DatabaseReference databaseReference;
             ic_menu = findViewById(R.id.Hamburger_menu_home_id);
             ic_menu.setOnClickListener(v-> ic_menu());
 
-//====================================recycaler view
 
-            recyclerView = findViewById(R.id.recyclerview_id);
-            recyclerView.setHasFixedSize(true);
-            recyclerView.setLayoutManager(new LinearLayoutManager(this));
-            uploadList_hotels = new ArrayList<>();
-            databaseReference = FirebaseDatabase.getInstance().getReference("Upload_HOTEL_Image");
-            databaseReference.addValueEventListener(new ValueEventListener(){
-                @Override
-                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-//database ttheke data anbo
+            drawerLayout = findViewById(R.id.my_drawer_layout);
 
-                    for(DataSnapshot dataSnapshot1: dataSnapshot.getChildren()){
-                        Hotels_Upload upload = dataSnapshot1.getValue(Hotels_Upload.class);
-                        uploadList_hotels.add(upload);
-                    }
-                    myAdapter = new Hotel_img_Adapter(Home.this, uploadList_hotels);
-                    recyclerView.setAdapter(myAdapter);
-                    //progressBar.setVisibility(View.INVISIBLE);
-                }
 
-                @Override
-                public void onCancelled(@NonNull DatabaseError error) {
-                    Toast.makeText(getApplicationContext(),"Error : "+error.getMessage(),Toast.LENGTH_LONG).show();
-                  //  progressBar.setVisibility(View.INVISIBLE);
-                }
-            });
-//===========================================
+
+
+
         }
 
-    private void notificaiton_msg() {
-            Intent i= new Intent( Home.this, Display_Booking_HOTEL.class);
-            startActivity(i);
-    }
-
-    //logout
     private void ic_menu() {
-FirebaseAuth.getInstance().signOut();
-SharedPreferences sp = this.getSharedPreferences("Remember_login_Sharedpref", MODE_PRIVATE);
-sp.edit().clear().apply();
 
-        SharedPreferences sppp = this.getSharedPreferences("CURRENT_USER_INFO", MODE_PRIVATE);
-        sppp.edit().clear().apply();
-
-Intent i = new Intent(Home.this, MainActivity.class);
-//i.putExtra("LOGOUT","YES");
-startActivity(i);
+            drawerLayout.openDrawer(GravityCompat.START);
 
 
 //finish();
@@ -151,9 +104,7 @@ startActivity(i);
 
     //================================funciton for home page
     private void review() {
-
-      //  Intent i = new Intent(Home.this, Best_visit_place_suggestion.class);
-        Intent i = new Intent(Home.this, Display_Booking_HOTEL.class);
+        Intent i = new Intent(Home.this, Best_visit_place_suggestion.class);
         startActivity(i);
     }
     private void discount() {
@@ -169,19 +120,9 @@ startActivity(i);
 
 
     private void hotel() {
-        SharedPreferences users = this.getSharedPreferences("TRAVELER", MODE_PRIVATE);
-        String curr_user = users.getString("TRAVELER", "");
- if(curr_user.equals("TRA")){
-     Intent i = new Intent(Home.this, Display_HOTEL_Image.class);
-     startActivity(i);
- }else if(curr_user.equals("MAN")) {
-     Intent i = new Intent(Home.this, Hotels.class);
-     startActivity(i);
- }else{
-     System.out.println("Somethig Wrong");
-     System.out.println(curr_user);
- }
 
+        Intent i = new Intent(Home.this, Hotels.class);
+        startActivity(i);
     } private void air() {
         Intent i = new Intent(Home.this, Airline.class);
         startActivity(i);
@@ -193,12 +134,10 @@ startActivity(i);
         startActivity(i);
     }
     private void profile() {
-
         Intent i = new Intent(Home.this, Profile.class);
-
         startActivity(i);
-
-
     }
+
+
 
 }
